@@ -6,7 +6,77 @@
         <description>Recent content on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://weltolk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Keyword</title>
+        <link>https://weltolk.github.io/p/keyword/</link>
+        <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
+        
+        <guid>https://weltolk.github.io/p/keyword/</guid>
+        <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;auto&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;enum&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;unsigned&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;break&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;extern&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;return&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;void&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;case&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;short&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;volatile&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;char&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;for&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;signed&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;while&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;const&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;goto&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;sizeof&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;continue&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;if&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;static&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;default&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;struct&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;do&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;switch&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;long&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;typedef&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;else&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;register&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;union&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;restrict&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;inline&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;_Bool&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;_Complex&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;_Imaginary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        </item>
+        <item>
         <title>Chinese Test</title>
         <link>https://weltolk.github.io/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
