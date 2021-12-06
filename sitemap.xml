@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/tags/c/</loc>
+    <loc>https://example.com/categories/c/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/c/</loc>
+    <loc>https://example.com/tags/c/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
     <loc>https://example.com/categories/</loc>
@@ -14,19 +14,19 @@
     <loc>https://example.com/p/programming/c/keyword/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/keyword/</loc>
+    <loc>https://example.com/categories/keyword/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/keyword/</loc>
+    <loc>https://example.com/tags/keyword/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
     <loc>https://example.com/post/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/programming/</loc>
+    <loc>https://example.com/categories/programming/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/programming/</loc>
+    <loc>https://example.com/tags/programming/</loc>
     <lastmod>2021-08-07T19:34:00+08:00</lastmod>
   </url><url>
     <loc>https://example.com/tags/</loc>
@@ -105,5 +105,7 @@
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.com/search/</loc>
+  </url><url>
+    <loc>https://example.com/tags/test/</loc>
   </url>
 </urlset>
