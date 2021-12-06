@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on Weltolk</title>
-    <link>https://example.com/categories/c/</link>
+    <link>https://weltolk.github.io/categories/c/</link>
     <description>Recent content in C on Weltolk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://example.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://weltolk.github.io/categories/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keyword</title>
-      <link>https://example.com/p/programming/c/keyword/</link>
+      <link>https://weltolk.github.io/p/programming/c/keyword/</link>
       <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
       
-      <guid>https://example.com/p/programming/c/keyword/</guid>
+      <guid>https://weltolk.github.io/p/programming/c/keyword/</guid>
       <description>C Language Keyword    auto enum unsigned break extern     return void case float short   volatile char for signed while   const goto sizeof continue if   static default struct do int   switch double long typedef else   register union      restrict inline _Bool _Complex _Imaginary    </description>
     </item>
     
