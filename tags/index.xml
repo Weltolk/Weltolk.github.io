@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Weltolk</title>
-    <link>https://weltolk.github.io/tags/</link>
+    <link>https://example.com/tags/</link>
     <description>Recent content in Tags on Weltolk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://weltolk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C</title>
-      <link>https://weltolk.github.io/tags/c/</link>
+      <link>https://example.com/tags/c/</link>
       <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
       
-      <guid>https://weltolk.github.io/tags/c/</guid>
+      <guid>https://example.com/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>keyword</title>
-      <link>https://weltolk.github.io/tags/keyword/</link>
+      <link>https://example.com/tags/keyword/</link>
       <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
       
-      <guid>https://weltolk.github.io/tags/keyword/</guid>
+      <guid>https://example.com/tags/keyword/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>https://weltolk.github.io/tags/programming/</link>
+      <link>https://example.com/tags/programming/</link>
       <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
       
-      <guid>https://weltolk.github.io/tags/programming/</guid>
+      <guid>https://example.com/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>https://weltolk.github.io/tags/css/</link>
+      <link>https://example.com/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/css/</guid>
+      <guid>https://example.com/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html</title>
-      <link>https://weltolk.github.io/tags/html/</link>
+      <link>https://example.com/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/html/</guid>
+      <guid>https://example.com/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://weltolk.github.io/tags/markdown/</link>
+      <link>https://example.com/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/markdown/</guid>
+      <guid>https://example.com/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>https://weltolk.github.io/tags/themes/</link>
+      <link>https://example.com/tags/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/themes/</guid>
+      <guid>https://example.com/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>privacy</title>
-      <link>https://weltolk.github.io/tags/privacy/</link>
+      <link>https://example.com/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/privacy/</guid>
+      <guid>https://example.com/tags/privacy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shortcodes</title>
-      <link>https://weltolk.github.io/tags/shortcodes/</link>
+      <link>https://example.com/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/shortcodes/</guid>
+      <guid>https://example.com/tags/shortcodes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag with whitespaces</title>
-      <link>https://weltolk.github.io/tags/tag-with-whitespaces/</link>
+      <link>https://example.com/tags/tag-with-whitespaces/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/tag-with-whitespaces/</guid>
+      <guid>https://example.com/tags/tag-with-whitespaces/</guid>
       <description></description>
     </item>
     
     <item>
       <title>text</title>
-      <link>https://weltolk.github.io/tags/text/</link>
+      <link>https://example.com/tags/text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/text/</guid>
+      <guid>https://example.com/tags/text/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emoji</title>
-      <link>https://weltolk.github.io/tags/emoji/</link>
+      <link>https://example.com/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://weltolk.github.io/tags/emoji/</guid>
+      <guid>https://example.com/tags/emoji/</guid>
       <description></description>
     </item>
     
