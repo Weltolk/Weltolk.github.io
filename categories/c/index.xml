@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C on test</title>
-    <link>test/categories/c/</link>
-    <description>Recent content in C on test</description>
+    <title>C on Weltolk</title>
+    <link>https://weltolk.github.io/categories/c/</link>
+    <description>Recent content in C on Weltolk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 05 Dec 2021 19:34:00 +0800</lastBuildDate><atom:link href="test/categories/c/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>C Language</title>
-      <link>test/p/programming/c/</link>
-      <pubDate>Sun, 05 Dec 2021 19:34:00 +0800</pubDate>
-      
-      <guid>test/p/programming/c/</guid>
-      <description>C Language C 语言是一种通用的、面向过程式的计算机程序设计语言。1972 年，为了移植与开发 UNIX 操作系统，丹尼斯·里奇在贝尔电话实验室设计开发了 C 语言。
-C 语言是一种广泛使用的计算机语言，它与 Java 编程语言一样普及，二者在现代软件程序员之间都得到广泛使用。
-当前最新的 C 语言标准为 C18 ，在它之前的 C 语言标准有 C17、C11&amp;hellip;C99 等。</description>
-    </item>
-    
+    <lastBuildDate>Sat, 07 Aug 2021 19:34:00 +0800</lastBuildDate><atom:link href="https://weltolk.github.io/categories/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keyword</title>
-      <link>test/p/programming/c/keyword/</link>
-      <pubDate>Sun, 05 Dec 2021 19:34:00 +0800</pubDate>
+      <link>https://weltolk.github.io/p/programming/c/keyword/</link>
+      <pubDate>Sat, 07 Aug 2021 19:34:00 +0800</pubDate>
       
-      <guid>test/p/programming/c/keyword/</guid>
+      <guid>https://weltolk.github.io/p/programming/c/keyword/</guid>
       <description>C Language Keyword    auto enum unsigned break extern     return void case float short   volatile char for signed while   const goto sizeof continue if   static default struct do int   switch double long typedef else   register union      restrict inline _Bool _Complex _Imaginary    </description>
     </item>
     
