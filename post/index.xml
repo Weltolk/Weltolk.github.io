@@ -6,7 +6,38 @@
         <description>Recent content in Posts on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</title>
+        <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</link>
+        <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞" /&gt;&lt;h2 id=&#34;来源&#34;&gt;来源&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.0daying.com/post-71.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.0daying.com/post-71.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
+&lt;p&gt;两个条件:&lt;/p&gt;
+&lt;p&gt;1.迅睿CMS 版本为v4.5.4到v4.5.6(目前最新版)&lt;/p&gt;
+&lt;p&gt;2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限&lt;/p&gt;
+&lt;h2 id=&#34;漏洞描述&#34;&gt;漏洞描述&lt;/h2&gt;
+&lt;p&gt;后台&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处可上传zip文件,且该处没有对用户上传的zip压缩文件做相应的过滤,导致用户可以上传任意文件&lt;/p&gt;
+&lt;h2 id=&#34;漏洞利用&#34;&gt;漏洞利用&lt;/h2&gt;
+&lt;h3 id=&#34;版本v454&#34;&gt;版本v4.5.4&lt;/h3&gt;
+&lt;p&gt;将要上传的文件压缩为zip格式,然后登陆后台,在具备相关权限的情况下,在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处直接上传该zip文件,同时上传时必须要抓包,响应包中会返回上传的文件的物理路径&lt;/p&gt;
+&lt;p&gt;响应包中返回的物理路径通常为&amp;rdquo;&lt;em&gt;/cache/temp/&lt;/em&gt;.zip&amp;quot;,而通过该漏洞上传的zip文件在上传成功后会自动解压,自动解压的过程中会自动在zip文件的同目录下创建一个名为压缩包文件名去掉后缀名的目录,再将压缩包内的文件解压到此目录,因此,通常情况下如果上传一个名为webshell.zip,且压缩包内有一个名为webshell.php的文件,那么,通过该漏洞上传zip文件之后,压缩包内的webshell.php文件的物理路径为*/cache/temp/&lt;em&gt;/webshell/webshell.php,通过url访问为http://domain:post/cache/temp/&lt;/em&gt;/webshell/webshell.php&lt;/p&gt;
+&lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)&lt;/h3&gt;
+&lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
+&lt;p&gt;这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可&lt;/p&gt;
+&lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为*/cache/temp/&lt;em&gt;/webshell/webshell/webshell.php,url变为http://domain:post/cache/temp/&lt;/em&gt;/webshell/webshell/webshell.php&lt;/p&gt;
+&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
+&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
+&lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
+&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限即可&lt;/p&gt;
+&lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
+&lt;p&gt;登录后台,然后在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处上传zip文件&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file inclusion)</title>
         <link>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/</link>
         <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
@@ -3047,15 +3078,15 @@
 &lt;p&gt;X&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt; + Y&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt; = Z&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;Press &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;CTRL&lt;!-- raw HTML omitted --&gt;+&lt;!-- raw HTML omitted --&gt;ALT&lt;!-- raw HTML omitted --&gt;+&lt;!-- raw HTML omitted --&gt;Delete&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; to end the session.&lt;/p&gt;
 &lt;p&gt;Most &lt;!-- raw HTML omitted --&gt;salamanders&lt;!-- raw HTML omitted --&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=PAAkCSZUG1c&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;talk&lt;/a&gt; during Gopherfest, November 18, 2015.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;</description>
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>Rich Content</title>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://weltolk.github.io/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://weltolk.github.io/categories/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -29,16 +29,16 @@
                 />
   </url><url>
     <loc>https://weltolk.github.io/tags/expliot-db/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://weltolk.github.io/categories/expliot-db/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://weltolk.github.io/post/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://weltolk.github.io/tags/</loc>
-    <lastmod>2022-04-26T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -49,6 +49,9 @@
                 hreflang="en"
                 href="https://weltolk.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</loc>
+    <lastmod>2022-05-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/</loc>
     <lastmod>2022-04-26T00:00:00+00:00</lastmod>
