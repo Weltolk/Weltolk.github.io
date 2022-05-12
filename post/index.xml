@@ -6,7 +6,107 @@
         <description>Recent content in Posts on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 12 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>这个研还考不考了 记一次从开源cms代码审计到打通内网一个C段</title>
+        <link>https://weltolk.github.io/p/%E8%BF%99%E4%B8%AA%E7%A0%94%E8%BF%98%E8%80%83%E4%B8%8D%E8%80%83%E4%BA%86-%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/</link>
+        <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://weltolk.github.io/p/%E8%BF%99%E4%B8%AA%E7%A0%94%E8%BF%98%E8%80%83%E4%B8%8D%E8%80%83%E4%BA%86-%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%99%E4%B8%AA%E7%A0%94%E8%BF%98%E8%80%83%E4%B8%8D%E8%80%83%E4%BA%86-%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/postgraduate.png" alt="Featured image of post 这个研还考不考了 记一次从开源cms代码审计到打通内网一个C段" /&gt;&lt;h2 id=&#34;考研&#34;&gt;考研&lt;/h2&gt;
+&lt;p&gt;现在开始也不晚吧&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;渗透&#34;&gt;渗透&lt;/h2&gt;
+&lt;h3 id=&#34;1漏洞发现&#34;&gt;1.漏洞发现&lt;/h3&gt;
+&lt;p&gt;第一个洞是我自己审计出来的,详情见我下面的这一篇的文章,同站的文章,报了CVD,CNNVD,CNVD,到现在一个都没消息&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;第二个洞是别的师傅发的,我转载到我的站上来了&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这两个洞基本覆盖了这个cms的近期版本,而且第二个洞在最新版也可以复现,所以危害还是很大的,但是前提是能进后台而且有相应的权限,所以危害也不是很大&lt;/p&gt;
+&lt;p&gt;只能说不能说是很大吧,也不能说是很小&lt;/p&gt;
+&lt;h3 id=&#34;2漏洞利用&#34;&gt;2.漏洞利用&lt;/h3&gt;
+&lt;p&gt;不过既然有洞了,那么写个脚本让它自己去跑就行了,瞎猫碰上死耗子,能逮到几个站算几个&lt;/p&gt;
+&lt;p&gt;现在思路就很明确了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过google语法,bing语法,fofa,zoomeye收集使用该cms的网站&lt;/li&gt;
+&lt;li&gt;找后台路径&lt;/li&gt;
+&lt;li&gt;找后台登陆密码&lt;/li&gt;
+&lt;li&gt;查看版本和权限,然后尝试利用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;21-网站收集&#34;&gt;2.1 网站收集&lt;/h4&gt;
+&lt;h5 id=&#34;211-google语法&#34;&gt;2.1.1 google语法&lt;/h5&gt;
+&lt;p&gt;抓包看了一下,不是简单能搞定的,于是果断找别人的repository,在github和google找了许久,最终找到了一个能用的repository&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/howie6879/magic_google&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/howie6879/magic_google&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过google语法获取使用该cms的搜索结果,然后提取搜索结果里的url,记得如果有的话把gov.cn域名的url去掉&lt;/p&gt;
+&lt;h5 id=&#34;212-bing语法的坑&#34;&gt;2.1.2 bing语法的坑&lt;/h5&gt;
+&lt;p&gt;Microsoft有提供的bing搜索的api,但是要收费,加之我抓包看了一下发现爬bing比较简单,于是决定自己写&lt;/p&gt;
+&lt;p&gt;然而结果出乎我的意料,脚本发的包和在浏览器正常请求的包,在同一个设备和同一个ip下,脚本发的包竟然会被识别出来&amp;hellip;同样的搜索内容,在有多页搜索结果的情况下,脚本发的包不论请求第几页,返回的都是相同的内容&lt;/p&gt;
+&lt;p&gt;只能暂时放弃这一条路了,再研究下去不知道要研究多久,但是手动肯定更麻烦而且更慢,于是决定试一下一直听说但一直没用过的selenium&lt;/p&gt;
+&lt;p&gt;简单看了一下文档,发现挺简单的,而且用这个肯定不会被识别出来,于是愉快的爬了bing的搜索结果&lt;/p&gt;
+&lt;h5 id=&#34;213-fofa和zoomeye&#34;&gt;2.1.3 fofa和zoomeye&lt;/h5&gt;
+&lt;p&gt;这两个都用自己的搜索语法,而且比较简单,就不赘述了,注意fofa可以直接搜索web app,但是和搜索web app的指纹的搜索结果是否一样要另说&lt;/p&gt;
+&lt;h5 id=&#34;214-收集到的url的处理&#34;&gt;2.1.4 收集到的url的处理&lt;/h5&gt;
+&lt;p&gt;首先把gov.cn域名的url去掉,然后再去重,最后保存起来就ok了&lt;/p&gt;
+&lt;h4 id=&#34;22-找后台&#34;&gt;2.2 找后台&lt;/h4&gt;
+&lt;p&gt;这个cms默认的后台是/admin.php,所以首先写个脚本试一下是不是默认的后台&lt;/p&gt;
+&lt;p&gt;不是默认的后台的站这里我用的&lt;a class=&#34;link&#34; href=&#34;https://github.com/maurosoria/dirsearch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/maurosoria/dirsearch&lt;/a&gt;爆破&lt;/p&gt;
+&lt;p&gt;不过最近我用这个repository的导出功能时,发现这个repository导出到html格式的功能有bug,批量爆破时可能会所有结果的domain都是第一个url的,或者直接导出的html文件内容为空&lt;/p&gt;
+&lt;p&gt;最后找不到后台的站就直接放弃了&lt;/p&gt;
+&lt;h4 id=&#34;23-找后台密码&#34;&gt;2.3 找后台密码&lt;/h4&gt;
+&lt;p&gt;这个cms没有默认的密码,安装的时候需要你设置密码&lt;/p&gt;
+&lt;p&gt;同时这个cms在用户名不存在时会返回用户名不存在,和用户名存在但密码错误时返回的密码错误不一样&lt;/p&gt;
+&lt;p&gt;所以先写个脚本批量试一下常见的用户名,注意漏洞存在的版本中,低版本的站不需要csrf,高版本的站需要csrf,csrf从后台登陆页面的html里有&lt;/p&gt;
+&lt;p&gt;因为这一步比较简单,就没用工具,自己写的,然后把不存在常见用户名的后台丢到burp suite里跑,用户名和密码的字典可以自己收集然后汇总一下,前段时间我刚自己整合了几个star比较多的repository的后台字典,以后用用看看怎么样&lt;/p&gt;
+&lt;p&gt;然后没爆破到用户名的站直接放弃,爆破到用户名的站先试一下常见的弱口令,admin,123456,用户名这样的,用脚本一会就跑完了,再把没用常见的弱口令的后台丢到burp suite爆破一遍密码,爆破的时间可以去看看前面跑出来用户名和密码的站&lt;/p&gt;
+&lt;p&gt;注意burp suite爆破的时候可以调高一下线程试试,要求并发很低的站可以放到服务器上去跑&lt;/p&gt;
+&lt;h4 id=&#34;24-利用&#34;&gt;2.4 利用&lt;/h4&gt;
+&lt;p&gt;前面提交漏洞的时候我写了个poc,稍微改一下就是exp,不过我不太喜欢用太自动化的东西,因为总有不一样的站,这次就遇到了几个不太一样的站,比如显示低版本但是实际上很多地方已经是高版本了,可能还有反过来的,所以爆破到后台密码的站我还是喜欢手动搞&lt;/p&gt;
+&lt;p&gt;具体操作还是很简单的,登陆后台,看一下版本,直接用前面的漏洞就拿到webshell了&lt;/p&gt;
+&lt;p&gt;此处切记要先给webshell做个备份之类的再考虑后渗透,比如在网站的关键目录里藏个免杀的马,如果不嫌麻烦的话(有风险的地方尽量少用自动化的工具)可以在服务器的每个web程序上都留个马,万一以后用到了,渗透就是越细越好,另外就是切记切记切记弹shell之后输命令的时候一定要小心,一定要小心,一定要小心,之前不小心把一个站mv到别的目录去了,而且没在别的web应用里留马,最后加急渗透旁站给他mv回去的&lt;/p&gt;
+&lt;p&gt;另外就是信息收集是最重要的,渗透测试的本质就是信息收集,如果拿到的webshell的权限很低,可以看一下子域名和端口,说不准能拿到高权限的账户&lt;/p&gt;
+&lt;p&gt;最后前面没跑出来密码的站也是直接放弃就好了&lt;/p&gt;
+&lt;h3 id=&#34;3后渗透&#34;&gt;3.后渗透&lt;/h3&gt;
+&lt;h4 id=&#34;31-绕php的disable_functions&#34;&gt;3.1 绕php的disable_functions&lt;/h4&gt;
+&lt;p&gt;此处用AntSword的官方绕过插件全自动绕,而且比较安全,不会搞坏目标服务器,绕过失败的可以手动试一下,还可以看一下cms存的数据库的用户名和密码,一般都在/config/database.php里,然后看一下数据库能不能利用,比如写文件或者写日志,以及各种提权,绕过失败,数据库也不能利用的可以看一下目标服务器上都有什么文件,比如其他站点或者其他可以利用的东西,如果限制访问目录了那就只能留着以后再看了&lt;/p&gt;
+&lt;h4 id=&#34;32-隐藏ip&#34;&gt;3.2 隐藏ip&lt;/h4&gt;
+&lt;p&gt;隐藏攻击ip还是很重要的,不然容易被溯源,可以上cdn或者用云函数等&lt;/p&gt;
+&lt;p&gt;但是此处也是有大坑的,能访问国外服务器的目标机器就好办了,直接上就行,但是不能访问国外服务器的目标机器,首先用cloudflare比较卡,其次用国内的云服务商的则需要实名,而且费用也不低,所以实在没办法就别隐藏了&lt;/p&gt;
+&lt;h4 id=&#34;33-反弹shell&#34;&gt;3.3 反弹shell&lt;/h4&gt;
+&lt;p&gt;webshell提供的shell环境限制很多,所以最好先反弹shell,尽量不要正向连接shell,开个端口动静太大&lt;/p&gt;
+&lt;p&gt;首先是不能弹shell的情况,比如相关的bash,nc等命令都被限制了,那先尝试提权&lt;/p&gt;
+&lt;p&gt;能弹shell但是接收不到的时候,可以看一下目标是不是限制出网或者限制出站端口&lt;/p&gt;
+&lt;p&gt;如果限制出网那就先尝试提权,如果限制出站端口可以批量试一下常见的端口,在自己的vps上,通过nginx监听多个端口来快速启动多个端口,然后再在目标机器上上传个sh脚本,批量curl自己vps的指定端口,最后看一下结果就可以了,nmap &amp;mdash;top-ports 100可以扫描nmap整理的100个最常见的端口,可以参考一下&lt;/p&gt;
+&lt;p&gt;成功收到shell的时候,依旧是个很难用的shell,可以再升级成完全的shell再用,升级之后和真实shell一样,非常舒服&lt;/p&gt;
+&lt;h4 id=&#34;34-低权限提权&#34;&gt;3.4 低权限提权&lt;/h4&gt;
+&lt;p&gt;前面成功getshell的站全都是linux的,一个windows的也没有,而且清一色的都是CentOS,一个Ubuntu,Debian或者其他的系统都没有,同时基本都是低权限,那就需要提权了&lt;/p&gt;
+&lt;p&gt;首先是信息收集,看一下/proc/version和/etc/*-release,然后在google和Exploit Database上找一下,同时看看打没打补丁,如果目标机器不能编译的话可以在自己的机器上编译好了传过去,利用成功就直接root了,不成功就只能继续试了,此处也有几个提权工具,不过我试了一下不是很好用,都是靠版本来判断的,和手动搞一样&lt;/p&gt;
+&lt;h4 id=&#34;35-权限维持&#34;&gt;3.5 权限维持&lt;/h4&gt;
+&lt;p&gt;切记要做持久化,不然辛辛苦苦拿的shell可能就要重新拿或者没了,方法很多,可以google搜一下,与时俱进,用最新的东西&lt;/p&gt;
+&lt;h4 id=&#34;36-内网&#34;&gt;3.6 内网&lt;/h4&gt;
+&lt;h5 id=&#34;361-信息收集&#34;&gt;3.6.1 信息收集&lt;/h5&gt;
+&lt;p&gt;激动人心的时刻来了,打内网&lt;/p&gt;
+&lt;p&gt;因为我拿到的shell都是linux下的,没有类似windows上的域控等等,所以此处就扫扫端口,此处可以用nmap,也可以用fscan,强烈推荐fscan,用一次就上瘾,很好用&lt;/p&gt;
+&lt;h5 id=&#34;362-搭建代理&#34;&gt;3.6.2 搭建代理&lt;/h5&gt;
+&lt;p&gt;有些内网ip的端口上跑的比如网站等等在命令行不太好渗透,而且有些内网ip是不出网的,只能通过我们打下来的这个边界服务器来访问,所以建个代理还是很有必要的&lt;/p&gt;
+&lt;p&gt;此处我推荐用frp,然后依旧遵循动静小点的原则,不在目标机器上开端口,在自己的vps上架设frp的服务端,在目标机器上架设frp的客户端,然后在客户端启用socks5代理插件,这会在服务端上开一个你指定的端口用来做socks5代理,可以配置用户名和密码,还可以远程连接,同时可以搭配其他软件做ip的黑白名单,非常好用,本地配置代理建议用Proxifier&lt;/p&gt;
+&lt;p&gt;另外也可以用Neo-reGeorg,直接上传个php/jsp等文件就可以建socks5代理,也很好用&lt;/p&gt;
+&lt;h5 id=&#34;363-内网渗透&#34;&gt;3.6.3 内网渗透&lt;/h5&gt;
+&lt;p&gt;其实和前面的web渗透一样,只不过有些应用在内网比较常见,所以需要去了解一下,搜一下有什么漏洞&lt;/p&gt;
+&lt;p&gt;fscan本身会检测漏洞,比如各种未授权访问,也会爆破一些端口的服务,比如mysql,ssh或者Tomcat的Manager App的弱口令等&lt;/p&gt;
+&lt;p&gt;一个C段可以见识不少东西,打了一遍下来竟然天亮了&amp;hellip;一天一夜过去了&lt;/p&gt;
+&lt;p&gt;具体就不细说了,遇见那个搜那个&lt;/p&gt;
+&lt;p&gt;该学考研的了&lt;/p&gt;
+&lt;h5 id=&#34;364-内网不出网反弹shell&#34;&gt;3.6.4 内网不出网反弹shell&lt;/h5&gt;
+&lt;p&gt;目标机器如果不出网可以反弹到已经打下来的内网机器上,同时可以再用frp代理到vps上,实现通过转发出网&lt;/p&gt;
+&lt;h4 id=&#34;37-痕迹清理&#34;&gt;3.7 痕迹清理&lt;/h4&gt;
+&lt;p&gt;主要是命令的历史记录和日志文件,不过基本清不干净,而且有些地方记录了也清不到,隐藏攻击ip比较万能&lt;/p&gt;
+&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
+&lt;p&gt;安全不容忽视,可以试一下自己的vps,看看有没有漏洞,尽量升级到最新版&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</title>
         <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</link>
         <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
