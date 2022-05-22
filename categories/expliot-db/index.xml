@@ -24,7 +24,7 @@
 &lt;h2 id=&#34;漏洞利用&#34;&gt;漏洞利用&lt;/h2&gt;
 &lt;h3 id=&#34;版本v454&#34;&gt;版本v4.5.4&lt;/h3&gt;
 &lt;p&gt;将要上传的文件压缩为zip格式,然后登陆后台,在具备相关权限的情况下,在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处直接上传该zip文件,同时上传时必须要抓包,响应包中会返回上传的文件的物理路径&lt;/p&gt;
-&lt;p&gt;响应包中返回的物理路径通常为&amp;rdquo;&lt;em&gt;/cache/temp/&lt;/em&gt;.zip&amp;quot;,而通过该漏洞上传的zip文件在上传成功后会自动解压,自动解压的过程中会自动在zip文件的同目录下创建一个名为压缩包文件名去掉后缀名的目录,再将压缩包内的文件解压到此目录,因此,通常情况下如果上传一个名为webshell.zip,且压缩包内有一个名为webshell.php的文件,那么,通过该漏洞上传zip文件之后,压缩包内的webshell.php文件的物理路径为*/cache/temp/&lt;em&gt;/webshell/webshell.php,通过url访问为http://domain:post/cache/temp/&lt;/em&gt;/webshell/webshell.php&lt;/p&gt;
+&lt;p&gt;响应包中返回的物理路径通常为&lt;code&gt;*/cache/temp/*.zip&lt;/code&gt;,而通过该漏洞上传的zip文件在上传成功后会自动解压,自动解压的过程中会自动在zip文件的同目录下创建一个名为压缩包去掉后缀名的文件名的目录,再将压缩包内的文件解压到此目录,因此,通常情况下如果上传一个名为webshell.zip,且压缩包内有一个名为webshell.php的文件的压缩包,那么,通过该漏洞上传zip文件之后,压缩包内的webshell.php文件的物理路径为&lt;code&gt;*/cache/temp/webshell/webshell.php&lt;/code&gt;,通过url访问为http://domain:post/cache/temp/webshell/webshell.php&lt;/p&gt;
 &lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)&lt;/h3&gt;
 &lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
 &lt;p&gt;这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可&lt;/p&gt;
@@ -32,7 +32,7 @@
 &lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
 &lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
 &lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
-&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限即可&lt;/p&gt;
+&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限即可&lt;/p&gt;
 &lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
 &lt;p&gt;登录后台,然后在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处上传zip文件&lt;/p&gt;
 </description>
@@ -182,7 +182,7 @@
 &lt;/div&gt;&lt;p&gt;End of if statement, write log and display operation results, the cron add interface is displayed, and the add() function ends&lt;/p&gt;
 &lt;h4 id=&#34;bypass-json-encoding-and-xss-cleaning-and-package--in-writepathconfigcronphp-file&#34;&gt;Bypass JSON encoding and &amp;ldquo;XSS cleaning&amp;rdquo; and package &lt;code&gt;&#39;&lt;/code&gt; in &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file&lt;/h4&gt;
 &lt;p&gt;Through the above analysis, we can find that, the add() function basically has no special precautions against user input, as long as we bypass the &amp;ldquo;XSS cleaning&amp;rdquo; and JSON encoding and the package &lt;code&gt;&#39;&lt;/code&gt; in the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file, we can write whatever we want&lt;/p&gt;
-&lt;p&gt;Here is one of my methods, in file &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;, write &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; PHP statement named webshell.php and content &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt; in the root directory of the website when running file &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The following is one of my methods. In the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file, write the PHP statement of a file named webshell.php with the content of &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt; in the root directory of the website when running the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file&lt;/p&gt;
 &lt;p&gt;Note that the following operations need to obtain csrf_test_name first and obtain the method:&lt;/p&gt;
 &lt;p&gt;1.Visit &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;2.Capture the post package sent when clicking &amp;ldquo;save&amp;rdquo;&lt;/p&gt;
@@ -1424,7 +1424,7 @@
 &lt;/div&gt;&lt;p&gt;if语句的最后,写入日志并显示操作结果,随即显示cron添加界面,add()函数结束&lt;/p&gt;
 &lt;h4 id=&#34;绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹&#34;&gt;绕过json编码和xss清洗以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹&lt;/h4&gt;
 &lt;p&gt;通过前文的分析,我们可以发现,add()函数对用户的输入基本没有特殊的防范,只要绕过xss清洗和json编码以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹即可写入我们想要的任意内容&lt;/p&gt;
-&lt;p&gt;以下是我的一种方法,在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中写入了当运行&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件时在网站根目录写一个名为webshell.php,内容为&lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;的php语句&lt;/p&gt;
+&lt;p&gt;以下是我的一种方法,在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中写入了当运行&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件时在网站根目录写一个名为webshell.php,内容为&lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;的文件的php语句&lt;/p&gt;
 &lt;p&gt;注意下述操作需要先获取csrf_test_name,获取方法:&lt;/p&gt;
 &lt;p&gt;1.访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;2.抓包当点击&amp;quot;保存&amp;quot;时发送的post包&lt;/p&gt;

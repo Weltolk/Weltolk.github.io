@@ -483,7 +483,7 @@
 </div><p>if语句的最后,写入日志并显示操作结果,随即显示cron添加界面,add()函数结束</p>
 <h4 id="绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹">绕过json编码和xss清洗以及<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹</h4>
 <p>通过前文的分析,我们可以发现,add()函数对用户的输入基本没有特殊的防范,只要绕过xss清洗和json编码以及<code>WRITEPATH.'config/cron.php'</code>文件中<code>'</code>的包裹即可写入我们想要的任意内容</p>
-<p>以下是我的一种方法,在<code>WRITEPATH.'config/cron.php'</code>文件中写入了当运行<code>WRITEPATH.'config/cron.php'</code>文件时在网站根目录写一个名为webshell.php,内容为<code>&lt;?php eval(@$_POST[&quot;password&quot;]);?&gt;</code>的php语句</p>
+<p>以下是我的一种方法,在<code>WRITEPATH.'config/cron.php'</code>文件中写入了当运行<code>WRITEPATH.'config/cron.php'</code>文件时在网站根目录写一个名为webshell.php,内容为<code>&lt;?php eval(@$_POST[&quot;password&quot;]);?&gt;</code>的文件的php语句</p>
 <p>注意下述操作需要先获取csrf_test_name,获取方法:</p>
 <p>1.访问<code>http://host:port/Admin.php?c=Cron&amp;m=add</code></p>
 <p>2.抓包当点击&quot;保存&quot;时发送的post包</p>
