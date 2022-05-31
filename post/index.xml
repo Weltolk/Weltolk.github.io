@@ -6,7 +6,34 @@
         <description>Recent content in Posts on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 22 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>全身心考研前的最后一击 关于过去和未来</title>
+        <link>https://weltolk.github.io/p/%E5%85%A8%E8%BA%AB%E5%BF%83%E8%80%83%E7%A0%94%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%87%BB-%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/</link>
+        <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://weltolk.github.io/p/%E5%85%A8%E8%BA%AB%E5%BF%83%E8%80%83%E7%A0%94%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%87%BB-%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/%E5%85%A8%E8%BA%AB%E5%BF%83%E8%80%83%E7%A0%94%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%87%BB-%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/postgraduate.png" alt="Featured image of post 全身心考研前的最后一击 关于过去和未来" /&gt;&lt;h2 id=&#34;过去&#34;&gt;过去&lt;/h2&gt;
+&lt;p&gt;一句话总结,准备考研的这段时间以来,一直没有好好学,三天打鱼,两天晒网,三心二意&lt;/p&gt;
+&lt;p&gt;虽然不玩游戏不刷b站了,但是大部分时间都用在了搞与考研无关的事情上,比如搞渗透,搞开发,这些虽然也是学习,但是与当前最重要的考研无关,并不应该这样做&lt;/p&gt;
+&lt;p&gt;今天这边文章的目的,就是总结一下过去搞得渗透和开发,等到考完研再搞&lt;/p&gt;
+&lt;h2 id=&#34;全身心考研前的最后一击&#34;&gt;全身心考研前的最后一击&lt;/h2&gt;
+&lt;p&gt;过去的时间打了很多机器,以下是考研之后需要先解决然后再继续研究渗透和开发的:&lt;/p&gt;
+&lt;p&gt;1.linux目标机器shell脚本反弹shell时不打印报错信息&lt;/p&gt;
+&lt;p&gt;2.linux目标机器低权限提权&lt;/p&gt;
+&lt;p&gt;3.某些linux目标机器绕disable_functions或通过其他方法执行系统命令&lt;/p&gt;
+&lt;p&gt;4.绕过某些低权限linux目标机器不允许做持久化&lt;/p&gt;
+&lt;p&gt;5.linux目标机器打内网&lt;/p&gt;
+&lt;p&gt;6.windows目标机器绕过disable_functions或通过其他方法执行系统命令&lt;/p&gt;
+&lt;p&gt;7.已经拿到windows目标机器的system权限时,做后渗透,做持久化(对windows不够了解,而且windows的后渗透比linux的后渗透难入门的多)&lt;/p&gt;
+&lt;p&gt;8.windows目标机器打内网&lt;/p&gt;
+&lt;p&gt;9.继续通过已有漏洞扫全网&lt;/p&gt;
+&lt;p&gt;10.继续研究新漏洞&lt;/p&gt;
+&lt;h2 id=&#34;未来&#34;&gt;未来&lt;/h2&gt;
+&lt;p&gt;相信自己&lt;/p&gt;
+&lt;p&gt;你可以做到任何事&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>考研记录 距考研初试217天</title>
         <link>https://weltolk.github.io/p/%E8%80%83%E7%A0%94%E8%AE%B0%E5%BD%95-%E8%B7%9D%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95217%E5%A4%A9/</link>
         <pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate>
