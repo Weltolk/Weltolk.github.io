@@ -765,7 +765,7 @@
 &lt;h3 id=&#34;after-version-v451&#34;&gt;after version v4.5.1&lt;/h3&gt;
 &lt;p&gt;The add() function is deleted&lt;/p&gt;
 &lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
-&lt;p&gt;Very simple, I won&amp;rsquo;t &amp;ldquo;xianchou&amp;rdquo;, but note that there may be some strange phenomena in the CMS of the target site, such as the version number is low, but the actual site file has been updated&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s very simple. I won&amp;rsquo;t write it, but note that there may be holes in the CMS of the target site. For example, the version number is low but the actual site file has been updated&lt;/p&gt;
 &lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
 &lt;p&gt;Log in to the background, get the version number, and then verify whether it is an administrator or has the management permission of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;&lt;/p&gt;
 &lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
