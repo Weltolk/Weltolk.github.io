@@ -82,9 +82,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;bing快照:&lt;/p&gt;
-&lt;p&gt;(&lt;a class=&#34;link&#34; href=&#34;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm%29[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm)[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm)[http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式&lt;/h2&gt;
 &lt;p&gt;写webshell文件:&lt;/p&gt;
 &lt;p&gt;写入的文件默认是在网站根目录下&lt;/p&gt;
 &lt;p&gt;经过测试,如果写入的内容包含&lt;code&gt;&amp;lt;?&lt;/code&gt;,会被url转义,但是先写&lt;code&gt;&amp;lt;&lt;/code&gt;再写&lt;code&gt;?&lt;/code&gt;就不会被转义&lt;/p&gt;
