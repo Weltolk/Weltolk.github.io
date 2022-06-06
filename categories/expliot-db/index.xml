@@ -140,7 +140,7 @@
 &lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)&lt;/h3&gt;
 &lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
 &lt;p&gt;这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可&lt;/p&gt;
-&lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为*/cache/temp/&lt;em&gt;/webshell/webshell/webshell.php,url变为http://domain:post/cache/temp/&lt;/em&gt;/webshell/webshell/webshell.php&lt;/p&gt;
+&lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为&lt;code&gt;*/cache/temp/*/webshell/webshell/webshell.php&lt;/code&gt;,url变为http://domain:post/cache/temp/*/webshell/webshell/webshell.php&lt;/p&gt;
 &lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
 &lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
 &lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
