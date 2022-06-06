@@ -2077,7 +2077,7 @@
 &lt;h3 id=&#34;在版本v451之后&#34;&gt;在版本v4.5.1之后&lt;/h3&gt;
 &lt;p&gt;add()函数被删除&lt;/p&gt;
 &lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
-&lt;p&gt;很简单,我就不献丑了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
+&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
 &lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
 &lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限即可&lt;/p&gt;
 &lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
