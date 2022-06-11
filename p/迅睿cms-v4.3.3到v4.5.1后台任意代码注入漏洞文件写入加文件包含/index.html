@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/'>
 
-<link rel="stylesheet" href="/scss/style.min.29643981c85dd7b642ed0df5dd5b89f308f17fe16948ba1c8ecba5ffe8c91275.css"><meta property='og:title' content='迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)'>
 <meta property='og:description' content='迅睿CMS v4.3.3到v4.5.1'>
 <meta property='og:url' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/'>
 <meta property='og:site_name' content='Weltolk'>
@@ -352,8 +352,17 @@
 <p>两个条件:</p>
 <p>1.迅睿CMS 版本为v4.3.3到v4.5.1</p>
 <p>2.登录后台,且为管理员或具有&quot;应用&quot;-&gt;&ldquo;任务队列&quot;的管理权限</p>
+<h2 id="环境搭建">环境搭建</h2>
+<p>1.安装并配置好php与web中间件,注意该cms的低版本需要php的低版本</p>
+<p>2.clone该cms的官方开源地址<a class="link" href="https://gitee.com/dayrui/xunruicms"  target="_blank" rel="noopener"
+    >https://gitee.com/dayrui/xunruicms</a></p>
+<p>3.通过搜索commit信息里的版本号,回退到指定的版本</p>
+<p>在PhpStorm里,右键指定的commit版本,选择&quot;Reset Current Branch to Here&rdquo;</p>
+<p>选择&quot;Hard&quot;,点击&quot;Reset&quot;</p>
+<p>4.访问,安装,登陆后台</p>
+<p>后台地址:<code>/admin.php</code></p>
 <h2 id="漏洞描述">漏洞描述</h2>
-<p>Admin控制器文件夹下Cron.php控制器的add()函数对于用户的输入没有进行专门的过滤,致使攻击者在具备管理员权限或具有&quot;应用&rdquo;-&gt;&ldquo;任务队列&quot;的管理权限时可以对<code>WRITEPATH.'config/cron.php'</code>文件写入任意内容,同时该文件有多处被包含且可以被利用的点,正常情况下具有上述的触发条件即可稳定触发该漏洞</p>
+<p>Admin控制器文件夹下Cron.php控制器的add()函数对于用户的输入没有进行专门的过滤,致使攻击者在具备管理员权限或具有&quot;应用&quot;-&gt;&ldquo;任务队列&quot;的管理权限时可以对<code>WRITEPATH.'config/cron.php'</code>文件写入任意内容,同时该文件有多处被包含且可以被利用的点,正常情况下具有上述的触发条件即可稳定触发该漏洞</p>
 <h2 id="漏洞原理">漏洞原理</h2>
 <h3 id="在版本v433之前">在版本v4.3.3之前</h3>
 <p>在版本v4.3.3之前,cron.php下并未有add()函数</p>
@@ -1731,6 +1740,10 @@
     .twikoo .el-button{
         color: var(--twikoo-body-text-color)!important;
     }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
 </style><script>
     twikoo.init({
         envId: 'https:\/\/twikoo-lgd1k3x92-vercel00.vercel.app\/',
@@ -1750,7 +1763,7 @@
         
             2u94 4 4un <br/>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.12.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -1857,6 +1870,7 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#触发条件">触发条件</a></li>
+    <li><a href="#环境搭建">环境搭建</a></li>
     <li><a href="#漏洞描述">漏洞描述</a></li>
     <li><a href="#漏洞原理">漏洞原理</a>
       <ol>
