@@ -6,7 +6,19 @@
         <description>Recent content on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>考研记录 距考研初试191天</title>
+        <link>https://weltolk.github.io/p/%E8%80%83%E7%A0%94%E8%AE%B0%E5%BD%95-%E8%B7%9D%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95191%E5%A4%A9/</link>
+        <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://weltolk.github.io/p/%E8%80%83%E7%A0%94%E8%AE%B0%E5%BD%95-%E8%B7%9D%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95191%E5%A4%A9/</guid>
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%80%83%E7%A0%94%E8%AE%B0%E5%BD%95-%E8%B7%9D%E8%80%83%E7%A0%94%E5%88%9D%E8%AF%95191%E5%A4%A9/postgraduate.png" alt="Featured image of post 考研记录 距考研初试191天" /&gt;&lt;h1 id=&#34;放假回家小颓了几天要改掉&#34;&gt;放假回家小颓了几天,要改掉&lt;/h1&gt;
+&lt;p&gt;我发现我每次换一个环境就会摆烂几天,怀念原来的环境的好,感觉是个坏习惯,要改正,放假回家情绪低落了几天,也没学习,知识大降,明天开始好好学习,从明天开始距离考研还有190天,莫名的感觉很自信,清单上的计划都能做到&lt;/p&gt;
+&lt;h1 id=&#34;知行合一致良知&#34;&gt;知行合一,致良知&lt;/h1&gt;
+&lt;p&gt;近期发现了一句我认为很有道理的话,第一次看到是我初中的时候读当年明月写的&amp;quot;明朝那些事儿&amp;quot;,&amp;ldquo;知行合一,致良知&amp;rdquo;,我觉得这句话也是我追求的那种&amp;quot;普适的&amp;quot;道理,有些道理可能能简单就能明白,但是践行却是另一回事,另外我发现&amp;quot;读万卷书,行万里路&amp;quot;也很有道理,知和行学到的道理是不一样的,而且我发现一件事做过和没做过区别很大,用古人的话说就是&amp;quot;纸上得来终觉浅,绝知此事要躬行&amp;quot;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>全身心考研前的最后一击 关于过去和未来</title>
         <link>https://weltolk.github.io/p/%E5%85%A8%E8%BA%AB%E5%BF%83%E8%80%83%E7%A0%94%E5%89%8D%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%87%BB-%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/</link>
         <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
@@ -171,7 +183,10 @@
 &lt;p&gt;第二个洞是别的师傅发的,我转载到我的站上来了&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这两个洞基本覆盖了这个cms的近期版本,而且第二个洞在最新版也可以复现,所以危害还是很大的,但是前提是能进后台而且有相应的权限,所以危害也不是很大&lt;/p&gt;
+&lt;p&gt;第三个洞也是别的师傅发的,我转载到我的站上来了&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这三个洞基本覆盖了这个cms的近期版本,而且第二个洞在最新版也可以复现,所以危害还是很大的,但是前提是能进后台而且有相应的权限,第三个洞虽然是前台代码执行,但是是低版本的,所以危害也不是很大&lt;/p&gt;
 &lt;p&gt;只能说不能说是很大吧,也不能说是很小&lt;/p&gt;
 &lt;h3 id=&#34;漏洞利用&#34;&gt;漏洞利用&lt;/h3&gt;
 &lt;p&gt;不过既然有洞了,那么写个脚本让它自己去跑就行了,瞎猫碰上死耗子,能逮到几个站算几个&lt;/p&gt;
@@ -411,7 +426,7 @@
 &lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)&lt;/h3&gt;
 &lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
 &lt;p&gt;这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可&lt;/p&gt;
-&lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为&lt;code&gt;*/cache/temp/*/webshell/webshell/webshell.php&lt;/code&gt;,url变为http://domain:post/cache/temp/*/webshell/webshell/webshell.php&lt;/p&gt;
+&lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为&lt;code&gt;*/cache/temp/linkage/webshell/webshell/webshell.php&lt;/code&gt;,url变为http://domain:post/cache/temp/linkage/webshell/webshell/webshell.php&lt;/p&gt;
 &lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
 &lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
 &lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
