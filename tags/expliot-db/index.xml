@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>expliot-db on Weltolk</title>
+        <title>Expliot-Db on Weltolk</title>
         <link>https://weltolk.github.io/tags/expliot-db/</link>
-        <description>Recent content in expliot-db on Weltolk</description>
+        <description>Recent content in Expliot-Db on Weltolk</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language>
+        <language>en</language>
         <lastBuildDate>Tue, 31 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weltolk.github.io/tags/expliot-db/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞</title>
         <link>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</link>
         <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
         
         <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
-&lt;p&gt;一个条件:&lt;/p&gt;
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.0%E5%88%B0v4.5.1%E5%89%8D%E5%8F%B0%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.0到v4.5.1前台代码注入漏洞" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件
+&lt;/h2&gt;&lt;p&gt;一个条件:&lt;/p&gt;
 &lt;p&gt;1.迅睿CMS 版本为v4.5.0到v4.5.1&lt;/p&gt;
-&lt;h2 id=&#34;漏洞分析&#34;&gt;漏洞分析&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/10002&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;漏洞分析&#34;&gt;漏洞分析
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://xz.aliyun.com/t/10002&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://xz.aliyun.com/t/10002&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;http://w4nder.top/index.php/2021/09/18/xunruicms-rce/&lt;/a&gt;&lt;/p&gt;
@@ -64,8 +64,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;http://cncc.bingj.com/cache.aspx?q=https%3a%2f%2fxz.aliyun.com%2ft%2f10002&amp;amp;d=4793325569704282&amp;amp;mkt=zh-CN&amp;amp;setlang=en-US&amp;amp;w=eZ59zs2SxfyDwKSkJpRp0MonVvsThxnm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式&lt;/h2&gt;
-&lt;p&gt;写webshell文件:&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;一个利用方式&#34;&gt;一个利用方式
+&lt;/h2&gt;&lt;p&gt;写webshell文件:&lt;/p&gt;
 &lt;p&gt;写入的文件默认是在网站根目录下&lt;/p&gt;
 &lt;p&gt;经过测试,如果写入的内容包含&lt;code&gt;&amp;lt;?&lt;/code&gt;,会被url转义,但是先写&lt;code&gt;&amp;lt;&lt;/code&gt;再写&lt;code&gt;?&lt;/code&gt;就不会被转义&lt;/p&gt;
 &lt;p&gt;写入php标记为&lt;code&gt;&amp;lt;?=&#39;&#39;;?&amp;gt;&lt;/code&gt;的php文件:&lt;/p&gt;
@@ -107,8 +107,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;写完之后,访问webshell2.php,会在同目录下生成webshell.php文件,webshell.php即为webshell&lt;/p&gt;
-&lt;h2 id=&#34;执行无参函数&#34;&gt;执行无参函数&lt;/h2&gt;
-&lt;p&gt;如果想执行无参函数,例如&lt;code&gt;phpinfo();&lt;/code&gt;,将url中的&lt;code&gt;param0&lt;/code&gt;参数设为&lt;code&gt;-1&lt;/code&gt;即可:&lt;/p&gt;
+&lt;h2 id=&#34;执行无参函数&#34;&gt;执行无参函数
+&lt;/h2&gt;&lt;p&gt;如果想执行无参函数,例如&lt;code&gt;phpinfo();&lt;/code&gt;,将url中的&lt;code&gt;param0&lt;/code&gt;参数设为&lt;code&gt;-1&lt;/code&gt;即可:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -125,29 +125,29 @@
         <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
         
         <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞" /&gt;&lt;h2 id=&#34;来源&#34;&gt;来源&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.0daying.com/post-71.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.5.4%E5%88%B0v4.5.6%E7%9B%AE%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/expliot-db.png" alt="Featured image of post 迅睿CMS v4.5.4到v4.5.6(目前最新版)文件上传漏洞" /&gt;&lt;h2 id=&#34;来源&#34;&gt;来源
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.0daying.com/post-71.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.0daying.com/post-71.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
-&lt;p&gt;两个条件:&lt;/p&gt;
+&lt;h2 id=&#34;触发条件&#34;&gt;触发条件
+&lt;/h2&gt;&lt;p&gt;两个条件:&lt;/p&gt;
 &lt;p&gt;1.迅睿CMS 版本为v4.5.4到v4.5.6(目前最新版)&lt;/p&gt;
 &lt;p&gt;2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限&lt;/p&gt;
-&lt;h2 id=&#34;漏洞描述&#34;&gt;漏洞描述&lt;/h2&gt;
-&lt;p&gt;后台&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处可上传zip文件,且该处没有对用户上传的zip压缩文件做相应的过滤,导致用户可以上传任意文件&lt;/p&gt;
-&lt;h2 id=&#34;漏洞利用&#34;&gt;漏洞利用&lt;/h2&gt;
-&lt;h3 id=&#34;版本v454&#34;&gt;版本v4.5.4&lt;/h3&gt;
-&lt;p&gt;将要上传的文件压缩为zip格式,然后登陆后台,在具备相关权限的情况下,在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处直接上传该zip文件,同时上传时必须要抓包,响应包中会返回上传的文件的物理路径&lt;/p&gt;
+&lt;h2 id=&#34;漏洞描述&#34;&gt;漏洞描述
+&lt;/h2&gt;&lt;p&gt;后台&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处可上传zip文件,且该处没有对用户上传的zip压缩文件做相应的过滤,导致用户可以上传任意文件&lt;/p&gt;
+&lt;h2 id=&#34;漏洞利用&#34;&gt;漏洞利用
+&lt;/h2&gt;&lt;h3 id=&#34;版本v454&#34;&gt;版本v4.5.4
+&lt;/h3&gt;&lt;p&gt;将要上传的文件压缩为zip格式,然后登陆后台,在具备相关权限的情况下,在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处直接上传该zip文件,同时上传时必须要抓包,响应包中会返回上传的文件的物理路径&lt;/p&gt;
 &lt;p&gt;响应包中返回的物理路径通常为&lt;code&gt;*/cache/temp/*.zip&lt;/code&gt;,而通过该漏洞上传的zip文件在上传成功后会自动解压,自动解压的过程中会自动在zip文件的同目录下创建一个名为压缩包去掉后缀名的文件名的目录,再将压缩包内的文件解压到此目录,因此,通常情况下如果上传一个名为webshell.zip,且压缩包内有一个名为webshell.php的文件的压缩包,那么,通过该漏洞上传zip文件之后,压缩包内的webshell.php文件的物理路径为&lt;code&gt;*/cache/temp/webshell/webshell.php&lt;/code&gt;,通过url访问为http://domain:post/cache/temp/webshell/webshell.php&lt;/p&gt;
-&lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)&lt;/h3&gt;
-&lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
+&lt;h3 id=&#34;版本v455和版本v456目前最新版&#34;&gt;版本v4.5.5和版本v4.5.6(目前最新版)
+&lt;/h3&gt;&lt;p&gt;相比版本v4.5.4,这两个版本增加了对压缩包内文件的检测,但是此处我们先不尝试绕过相应的检测,而是尝试另一个更为简单的方法&lt;/p&gt;
 &lt;p&gt;这两个版本未对压缩包内的文件夹进行递归检测,因此只要把恶意文件放在文件夹内再压缩然后上传即可&lt;/p&gt;
 &lt;p&gt;相比版本v4.5.4,在上传该zip压缩文件时依旧可以通过抓包获取文件的物理路径,同时因为增加了一层文件夹,相应的解压之后的压缩包内的文件的物理路径变为&lt;code&gt;*/cache/temp/linkage/webshell/webshell/webshell.php&lt;/code&gt;,url变为http://domain:post/cache/temp/linkage/webshell/webshell/webshell.php&lt;/p&gt;
-&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
-&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
-&lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
-&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限即可&lt;/p&gt;
-&lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
-&lt;p&gt;登录后台,然后在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处上传zip文件&lt;/p&gt;
+&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP
+&lt;/h2&gt;&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
+&lt;h3 id=&#34;poc&#34;&gt;POC
+&lt;/h3&gt;&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;quot;的管理权限即可&lt;/p&gt;
+&lt;h3 id=&#34;exp&#34;&gt;EXP
+&lt;/h3&gt;&lt;p&gt;登录后台,然后在&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;联动菜单&amp;rdquo;-&amp;gt;&amp;ldquo;导入&amp;quot;处上传zip文件&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -156,12 +156,12 @@
         <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
         
         <guid>https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/expliot-db.png" alt="Featured image of post XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file inclusion)" /&gt;&lt;h2 id=&#34;prerequisite&#34;&gt;prerequisite&lt;/h2&gt;
-&lt;p&gt;two conditions:&lt;/p&gt;
+        <description>&lt;img src="https://weltolk.github.io/p/xunruicms-v4.3.3-to-v4.5.1-backstage-code-injection-vulnerabilityfile-write-and-file-inclusion/expliot-db.png" alt="Featured image of post XunRuiCMS v4.3.3 to v4.5.1 backstage code injection vulnerability(file write and file inclusion)" /&gt;&lt;h2 id=&#34;prerequisite&#34;&gt;prerequisite
+&lt;/h2&gt;&lt;p&gt;two conditions:&lt;/p&gt;
 &lt;p&gt;1.XunRuiCMS version is v4.3.3 to v4.5.1&lt;/p&gt;
 &lt;p&gt;2.You can log in to the background,And it is an administrator account or have the management permission of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;&lt;/p&gt;
-&lt;h2 id=&#34;environment-setup&#34;&gt;environment setup&lt;/h2&gt;
-&lt;ol&gt;
+&lt;h2 id=&#34;environment-setup&#34;&gt;environment setup
+&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;install and configure php and web middleware, note that the low version of the cms requires a low version of php&lt;/p&gt;
 &lt;/li&gt;
@@ -181,13 +181,13 @@
 &lt;p&gt;Backend address:&lt;code&gt;/admin.php&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Translated with &lt;a class=&#34;link&#34; href=&#34;https://www.DeepL.com/Translator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;www.DeepL.com/Translator&lt;/a&gt; (free version)&lt;/p&gt;
-&lt;h2 id=&#34;vulnerability-description&#34;&gt;vulnerability description&lt;/h2&gt;
-&lt;p&gt;Admin controller folder, Cron.php controller, add() function, there is no special filtering for user input, this will cause the attacker to execute the attack when he has administrator privileges or administrative privileges of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;, write anything to the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;, at the same time, the file has multiple points that can be executed and utilized, under normal circumstances, the above trigger conditions can stably trigger the vulnerability&lt;/p&gt;
-&lt;h2 id=&#34;vulnerability-principle&#34;&gt;vulnerability principle&lt;/h2&gt;
-&lt;h3 id=&#34;before-version-v433&#34;&gt;before version v4.3.3&lt;/h3&gt;
-&lt;p&gt;before version v4.3.3, there is no &amp;ldquo;add()&amp;rdquo; function under &amp;ldquo;cron.php&amp;rdquo;&lt;/p&gt;
-&lt;h3 id=&#34;under-versions-v433-to-v450&#34;&gt;Under versions v4.3.3 to v4.5.0&lt;/h3&gt;
-&lt;p&gt;1.The CMS, with the above permissions, Can be accessed through &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; call the add() function of the Cron.php controller under the Admin controller folder&lt;/p&gt;
+&lt;h2 id=&#34;vulnerability-description&#34;&gt;vulnerability description
+&lt;/h2&gt;&lt;p&gt;Admin controller folder, Cron.php controller, add() function, there is no special filtering for user input, this will cause the attacker to execute the attack when he has administrator privileges or administrative privileges of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;, write anything to the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;, at the same time, the file has multiple points that can be executed and utilized, under normal circumstances, the above trigger conditions can stably trigger the vulnerability&lt;/p&gt;
+&lt;h2 id=&#34;vulnerability-principle&#34;&gt;vulnerability principle
+&lt;/h2&gt;&lt;h3 id=&#34;before-version-v433&#34;&gt;before version v4.3.3
+&lt;/h3&gt;&lt;p&gt;before version v4.3.3, there is no &amp;ldquo;add()&amp;rdquo; function under &amp;ldquo;cron.php&amp;rdquo;&lt;/p&gt;
+&lt;h3 id=&#34;under-versions-v433-to-v450&#34;&gt;Under versions v4.3.3 to v4.5.0
+&lt;/h3&gt;&lt;p&gt;1.The CMS, with the above permissions, Can be accessed through &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; call the add() function of the Cron.php controller under the Admin controller folder&lt;/p&gt;
 &lt;p&gt;2.code of add() function:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -249,8 +249,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;analysis-of-add-function&#34;&gt;analysis of add() function&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h4 id=&#34;analysis-of-add-function&#34;&gt;analysis of add() function
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -314,8 +314,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;End of if statement, write log and display operation results, the cron add interface is displayed, and the add() function ends&lt;/p&gt;
-&lt;h4 id=&#34;bypass-json-encoding-and-xss-cleaning-and-package--in-writepathconfigcronphp-file&#34;&gt;Bypass JSON encoding and &amp;ldquo;XSS cleaning&amp;rdquo; and package &lt;code&gt;&#39;&lt;/code&gt; in &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file&lt;/h4&gt;
-&lt;p&gt;Through the above analysis, we can find that, the add() function basically has no special precautions against user input, as long as we bypass the &amp;ldquo;XSS cleaning&amp;rdquo; and JSON encoding and the package &lt;code&gt;&#39;&lt;/code&gt; in the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file, we can write whatever we want&lt;/p&gt;
+&lt;h4 id=&#34;bypass-json-encoding-and-xss-cleaning-and-package--in-writepathconfigcronphp-file&#34;&gt;Bypass JSON encoding and &amp;ldquo;XSS cleaning&amp;rdquo; and package &lt;code&gt;&#39;&lt;/code&gt; in &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file
+&lt;/h4&gt;&lt;p&gt;Through the above analysis, we can find that, the add() function basically has no special precautions against user input, as long as we bypass the &amp;ldquo;XSS cleaning&amp;rdquo; and JSON encoding and the package &lt;code&gt;&#39;&lt;/code&gt; in the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file, we can write whatever we want&lt;/p&gt;
 &lt;p&gt;The following is one of my methods. In the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file, write the PHP statement of a file named webshell.php with the content of &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt; in the root directory of the website when running the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file&lt;/p&gt;
 &lt;p&gt;Note that the following operations need to obtain csrf_test_name first and obtain the method:&lt;/p&gt;
 &lt;p&gt;1.Visit &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
@@ -369,11 +369,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The package of &lt;code&gt;&#39;&lt;/code&gt; in document &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; is closed&lt;/p&gt;
-&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
-&lt;p&gt;Through the analysis of add() function, when you call the add() function, you will first include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file when it exists, therefore, you can access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; directly&lt;/p&gt;
+&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to
+&lt;/h4&gt;&lt;p&gt;Through the analysis of add() function, when you call the add() function, you will first include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file when it exists, therefore, you can access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; directly&lt;/p&gt;
 &lt;p&gt;After accessing &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;, &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; file named webshell.php will be generated in the root directory of the website, and the content of the file is &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;version-v451&#34;&gt;version v4.5.1&lt;/h3&gt;
-&lt;p&gt;code of add() function:&lt;/p&gt;
+&lt;h3 id=&#34;version-v451&#34;&gt;version v4.5.1
+&lt;/h3&gt;&lt;p&gt;code of add() function:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -529,8 +529,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;bypass-the-json-encoding-xss-cleaning-dr_safe_filename-function-filtering-and-packages-in-writepathconfigcronphp-file&#34;&gt;bypass the JSON encoding, &amp;ldquo;XSS cleaning&amp;rdquo;, dr_safe_filename() function filtering and packages in &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file&lt;/h4&gt;
-&lt;p&gt;Instead of trying to bypass the dr_safe_filename() function, let&amp;rsquo;s try another extremely simple method&lt;/p&gt;
+&lt;/div&gt;&lt;h4 id=&#34;bypass-the-json-encoding-xss-cleaning-dr_safe_filename-function-filtering-and-packages-in-writepathconfigcronphp-file&#34;&gt;bypass the JSON encoding, &amp;ldquo;XSS cleaning&amp;rdquo;, dr_safe_filename() function filtering and packages in &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file
+&lt;/h4&gt;&lt;p&gt;Instead of trying to bypass the dr_safe_filename() function, let&amp;rsquo;s try another extremely simple method&lt;/p&gt;
 &lt;p&gt;Through the audit of the &amp;ldquo;XSS cleaning&amp;rdquo; function and the newly added code of the v5add() function, we can find that there is no filter for the key of the array, including the key of each dimension of the multidimensional array. Therefore, we can modify the key in the content of post to write any content we want&lt;/p&gt;
 &lt;p&gt;The following is my method. In the whole process of vulnerability exploitation, except for the above-mentioned filtering of value of key value pairs added in the add() function, other processes have no change compared with the previous version:&lt;/p&gt;
 &lt;p&gt;After obtaining csrf_test_name, give &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; post the following contents:&lt;/p&gt;
@@ -581,19 +581,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;The package of &lt;code&gt;&#39;&lt;/code&gt; in document &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; is closed&lt;/p&gt;
-&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to-1&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to&lt;/h4&gt;
-&lt;p&gt;Through the analysis of the add() function in front, when calling the add() function, the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file will be included when the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file exists, so you can directly access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;include-the-writepathconfigcronphp-file-written-to-1&#34;&gt;include the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file written to
+&lt;/h4&gt;&lt;p&gt;Through the analysis of the add() function in front, when calling the add() function, the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file will be included when the &lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt; file exists, so you can directly access &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;After accessing &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;, &lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt; file named webshell.php will be generated in the root directory of the website, and the content of the file is &lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;after-version-v451&#34;&gt;after version v4.5.1&lt;/h3&gt;
-&lt;p&gt;The add() function is deleted&lt;/p&gt;
-&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
-&lt;p&gt;It&amp;rsquo;s very simple. I won&amp;rsquo;t write it, but note that there may be holes in the CMS of the target site. For example, the version number is low but the actual site file has been updated&lt;/p&gt;
-&lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
-&lt;p&gt;Log in to the background, get the version number, and then verify whether it is an administrator or has the management permission of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;&lt;/p&gt;
-&lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
-&lt;p&gt;Log in to the background, then post write malicious code, and finally get access to malicious files&lt;/p&gt;
-&lt;h2 id=&#34;xss_clean-function&#34;&gt;xss_clean() function&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h3 id=&#34;after-version-v451&#34;&gt;after version v4.5.1
+&lt;/h3&gt;&lt;p&gt;The add() function is deleted&lt;/p&gt;
+&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP
+&lt;/h2&gt;&lt;p&gt;It&amp;rsquo;s very simple. I won&amp;rsquo;t write it, but note that there may be holes in the CMS of the target site. For example, the version number is low but the actual site file has been updated&lt;/p&gt;
+&lt;h3 id=&#34;poc&#34;&gt;POC
+&lt;/h3&gt;&lt;p&gt;Log in to the background, get the version number, and then verify whether it is an administrator or has the management permission of &amp;ldquo;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;rdquo;&lt;/p&gt;
+&lt;h3 id=&#34;exp&#34;&gt;EXP
+&lt;/h3&gt;&lt;p&gt;Log in to the background, then post write malicious code, and finally get access to malicious files&lt;/p&gt;
+&lt;h2 id=&#34;xss_clean-function&#34;&gt;xss_clean() function
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;  1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  2
@@ -1419,12 +1419,12 @@
         <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
         
         <guid>https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</guid>
-        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db.png" alt="Featured image of post 迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件&lt;/h2&gt;
-&lt;p&gt;两个条件:&lt;/p&gt;
+        <description>&lt;img src="https://weltolk.github.io/p/%E8%BF%85%E7%9D%BFcms-v4.3.3%E5%88%B0v4.5.1%E5%90%8E%E5%8F%B0%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E5%8A%A0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/expliot-db.png" alt="Featured image of post 迅睿CMS v4.3.3到v4.5.1后台任意代码注入漏洞(文件写入加文件包含)" /&gt;&lt;h2 id=&#34;触发条件&#34;&gt;触发条件
+&lt;/h2&gt;&lt;p&gt;两个条件:&lt;/p&gt;
 &lt;p&gt;1.迅睿CMS 版本为v4.3.3到v4.5.1&lt;/p&gt;
 &lt;p&gt;2.登录后台,且为管理员或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限&lt;/p&gt;
-&lt;h2 id=&#34;环境搭建&#34;&gt;环境搭建&lt;/h2&gt;
-&lt;p&gt;1.安装并配置好php与web中间件,注意该cms的低版本需要php的低版本&lt;/p&gt;
+&lt;h2 id=&#34;环境搭建&#34;&gt;环境搭建
+&lt;/h2&gt;&lt;p&gt;1.安装并配置好php与web中间件,注意该cms的低版本需要php的低版本&lt;/p&gt;
 &lt;p&gt;2.clone该cms的官方开源地址&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/dayrui/xunruicms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://gitee.com/dayrui/xunruicms&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;3.通过搜索commit信息里的版本号,回退到指定的版本&lt;/p&gt;
@@ -1432,13 +1432,13 @@
 &lt;p&gt;选择&amp;quot;Hard&amp;quot;,点击&amp;quot;Reset&amp;quot;&lt;/p&gt;
 &lt;p&gt;4.访问,安装,登陆后台&lt;/p&gt;
 &lt;p&gt;后台地址:&lt;code&gt;/admin.php&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;漏洞描述&#34;&gt;漏洞描述&lt;/h2&gt;
-&lt;p&gt;Admin控制器文件夹下Cron.php控制器的add()函数对于用户的输入没有进行专门的过滤,致使攻击者在具备管理员权限或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限时可以对&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件写入任意内容,同时该文件有多处被包含且可以被利用的点,正常情况下具有上述的触发条件即可稳定触发该漏洞&lt;/p&gt;
-&lt;h2 id=&#34;漏洞原理&#34;&gt;漏洞原理&lt;/h2&gt;
-&lt;h3 id=&#34;在版本v433之前&#34;&gt;在版本v4.3.3之前&lt;/h3&gt;
-&lt;p&gt;在版本v4.3.3之前,cron.php下并未有add()函数&lt;/p&gt;
-&lt;h3 id=&#34;在版本v433到v450下&#34;&gt;在版本v4.3.3到v4.5.0下&lt;/h3&gt;
-&lt;p&gt;1.该cms在具备上述权限的情况下,可以通过&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;调用Admin控制器文件夹下Cron.php控制器的add()函数&lt;/p&gt;
+&lt;h2 id=&#34;漏洞描述&#34;&gt;漏洞描述
+&lt;/h2&gt;&lt;p&gt;Admin控制器文件夹下Cron.php控制器的add()函数对于用户的输入没有进行专门的过滤,致使攻击者在具备管理员权限或具有&amp;quot;应用&amp;quot;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限时可以对&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件写入任意内容,同时该文件有多处被包含且可以被利用的点,正常情况下具有上述的触发条件即可稳定触发该漏洞&lt;/p&gt;
+&lt;h2 id=&#34;漏洞原理&#34;&gt;漏洞原理
+&lt;/h2&gt;&lt;h3 id=&#34;在版本v433之前&#34;&gt;在版本v4.3.3之前
+&lt;/h3&gt;&lt;p&gt;在版本v4.3.3之前,cron.php下并未有add()函数&lt;/p&gt;
+&lt;h3 id=&#34;在版本v433到v450下&#34;&gt;在版本v4.3.3到v4.5.0下
+&lt;/h3&gt;&lt;p&gt;1.该cms在具备上述权限的情况下,可以通过&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;调用Admin控制器文件夹下Cron.php控制器的add()函数&lt;/p&gt;
 &lt;p&gt;2.add()函数的代码:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1500,8 +1500,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;add函数的分析&#34;&gt;add()函数的分析&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;h4 id=&#34;add函数的分析&#34;&gt;add()函数的分析
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -1565,8 +1565,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;if语句的最后,写入日志并显示操作结果,随即显示cron添加界面,add()函数结束&lt;/p&gt;
-&lt;h4 id=&#34;绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹&#34;&gt;绕过json编码和xss清洗以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹&lt;/h4&gt;
-&lt;p&gt;通过前文的分析,我们可以发现,add()函数对用户的输入基本没有特殊的防范,只要绕过xss清洗和json编码以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹即可写入我们想要的任意内容&lt;/p&gt;
+&lt;h4 id=&#34;绕过json编码和xss清洗以及writepathconfigcronphp文件中的包裹&#34;&gt;绕过json编码和xss清洗以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹
+&lt;/h4&gt;&lt;p&gt;通过前文的分析,我们可以发现,add()函数对用户的输入基本没有特殊的防范,只要绕过xss清洗和json编码以及&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹即可写入我们想要的任意内容&lt;/p&gt;
 &lt;p&gt;以下是我的一种方法,在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中写入了当运行&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件时在网站根目录写一个名为webshell.php,内容为&lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;的文件的php语句&lt;/p&gt;
 &lt;p&gt;注意下述操作需要先获取csrf_test_name,获取方法:&lt;/p&gt;
 &lt;p&gt;1.访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;&lt;/p&gt;
@@ -1620,11 +1620,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;闭合了&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹&lt;/p&gt;
-&lt;h4 id=&#34;包含写入的writepathconfigcronphp文件&#34;&gt;包含写入的&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件&lt;/h4&gt;
-&lt;p&gt;通过前面对add()函数的分析,调用add()函数时会首先在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件存在时包含&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件,因此直接访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;即可&lt;/p&gt;
+&lt;h4 id=&#34;包含写入的writepathconfigcronphp文件&#34;&gt;包含写入的&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件
+&lt;/h4&gt;&lt;p&gt;通过前面对add()函数的分析,调用add()函数时会首先在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件存在时包含&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件,因此直接访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;即可&lt;/p&gt;
 &lt;p&gt;访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;后,在网站根目录下会生成一个名为webshell.php的文件,文件内容为&lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;版本v451&#34;&gt;版本v4.5.1&lt;/h3&gt;
-&lt;p&gt;add()函数的代码:&lt;/p&gt;
+&lt;h3 id=&#34;版本v451&#34;&gt;版本v4.5.1
+&lt;/h3&gt;&lt;p&gt;add()函数的代码:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1780,8 +1780,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;绕过json编码xss清洗dr_safe_filename函数的过滤和writepathconfigcronphp文件中的包裹&#34;&gt;绕过json编码,xss清洗,dr_safe_filename()函数的过滤和WRITEPATH.&amp;lsquo;config/cron.php&amp;rsquo;文件中&amp;rsquo;的包裹&lt;/h4&gt;
-&lt;p&gt;此处我们先不尝试绕过dr_safe_filename()函数,而是尝试另一个极其简单的方法&lt;/p&gt;
+&lt;/div&gt;&lt;h4 id=&#34;绕过json编码xss清洗dr_safe_filename函数的过滤和writepathconfigcronphp文件中的包裹&#34;&gt;绕过json编码,xss清洗,dr_safe_filename()函数的过滤和WRITEPATH.&amp;lsquo;config/cron.php&amp;rsquo;文件中&amp;rsquo;的包裹
+&lt;/h4&gt;&lt;p&gt;此处我们先不尝试绕过dr_safe_filename()函数,而是尝试另一个极其简单的方法&lt;/p&gt;
 &lt;p&gt;通过对xss清洗函数的审计和版本v4.5.1add()函数新增加的代码的审计,可以发现对于数组的key没有任何过滤,包括多维数组的每一维度的key,所以此处可以通过修改post的内容中的key来写入我们想要的任意内容&lt;/p&gt;
 &lt;p&gt;以下是我的一种方法,整个漏洞利用过程中,除了上述所述的关于add()函数中增加的对键值对的value的过滤,其他流程相较于之前的版本没有任何变化:&lt;/p&gt;
 &lt;p&gt;获取到csrf_test_name之后,给&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;post以下内容:&lt;/p&gt;
@@ -1832,19 +1832,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;闭合了&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件中&lt;code&gt;&#39;&lt;/code&gt;的包裹&lt;/p&gt;
-&lt;h4 id=&#34;包含写入的writepathconfigcronphp文件-1&#34;&gt;包含写入的&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件&lt;/h4&gt;
-&lt;p&gt;通过前面对add()函数的分析,调用add()函数时会首先在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件存在时包含&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件,因此直接访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;即可&lt;/p&gt;
+&lt;h4 id=&#34;包含写入的writepathconfigcronphp文件-1&#34;&gt;包含写入的&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件
+&lt;/h4&gt;&lt;p&gt;通过前面对add()函数的分析,调用add()函数时会首先在&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件存在时包含&lt;code&gt;WRITEPATH.&#39;config/cron.php&#39;&lt;/code&gt;文件,因此直接访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;即可&lt;/p&gt;
 &lt;p&gt;访问&lt;code&gt;http://host:port/Admin.php?c=Cron&amp;amp;m=add&lt;/code&gt;后,在网站根目录下会生成一个名为webshell.php的文件,文件内容为&lt;code&gt;&amp;lt;?php eval(@$_POST[&amp;quot;password&amp;quot;]);?&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;在版本v451之后&#34;&gt;在版本v4.5.1之后&lt;/h3&gt;
-&lt;p&gt;add()函数被删除&lt;/p&gt;
-&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP&lt;/h2&gt;
-&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
-&lt;h3 id=&#34;poc&#34;&gt;POC&lt;/h3&gt;
-&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限即可&lt;/p&gt;
-&lt;h3 id=&#34;exp&#34;&gt;EXP&lt;/h3&gt;
-&lt;p&gt;登录后台,然后post写入恶意代码,最后get访问包含恶意文件即可&lt;/p&gt;
-&lt;h2 id=&#34;xss_clean函数&#34;&gt;xss_clean()函数&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h3 id=&#34;在版本v451之后&#34;&gt;在版本v4.5.1之后
+&lt;/h3&gt;&lt;p&gt;add()函数被删除&lt;/p&gt;
+&lt;h2 id=&#34;poc--exp&#34;&gt;POC &amp;amp;&amp;amp; EXP
+&lt;/h2&gt;&lt;p&gt;很简单,我就不写了,不过注意目标站点的cms可能有坑,比如版本号低但实际的站点文件已经更新过了&lt;/p&gt;
+&lt;h3 id=&#34;poc&#34;&gt;POC
+&lt;/h3&gt;&lt;p&gt;登录后台,获取版本号,然后验证一下是否为管理员或具有&amp;quot;应用&amp;rdquo;-&amp;gt;&amp;ldquo;任务队列&amp;quot;的管理权限即可&lt;/p&gt;
+&lt;h3 id=&#34;exp&#34;&gt;EXP
+&lt;/h3&gt;&lt;p&gt;登录后台,然后post写入恶意代码,最后get访问包含恶意文件即可&lt;/p&gt;
+&lt;h2 id=&#34;xss_clean函数&#34;&gt;xss_clean()函数
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;  1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  2
